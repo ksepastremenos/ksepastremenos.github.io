@@ -1,12 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+    <meta charset="utf-8">
+    <title>rigascg</title>
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <link rel="stylesheet" href="mystyle.css">
 </head>
+
 <body>
-    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/545159378?h=912164f421&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Rigas Kougkolos - CG showreel 2021"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  <div class="scroller" data-simplebar>
+    <div class="mainFlexbox">
+      <div class="topcontainer">
+        <header class="container header">
+          <div class="logoandlanguage">
+          <button class="logoall"><span class="logowhite weak">rigas</span><span class="logocolor">cg</span></button>
+          <!-- <div class="emphasis strong">-</div> -->
+          <button class="languageselector"><span class="greek">gr</span><span class="strong"> · </span><span class="english emphasis strong">en</span></button>
+          </div>
+          
+          <nav>
+            <button style="display: inline-block;" class="fade" onclick="addclass('content','faded','y')">about</button>
+            <button style="display: inline-block;"class="fade"  onclick="swapcontent('test')">portfolio</button>
+            <button style="display: inline-block;"class="fade" >contact</button>
+          </nav>
+
+        </header>
+        <br>
+        <!-- Dynamic Website Content -->
+        <main id="content" class="verticalPageFlexbox">
+          <div class="videoWrapper">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe src="https://player.vimeo.com/video/545159378?h=912164f421&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;color=ff5d5d&amp;byline=0&amp;portrait=0&amp;title=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Rigas Kougkolos - CG showreel 2021"></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+          </div>
+          <div class="textbox">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae saepe quibusdam voluptatum, amet adipisci quis perspiciatis deleniti optio nemo eos maiores ratione delectus tempore? Iure id eligendi repudiandae tempore mollitia.</div>
+          <div class="textbox">Σε ορισμένους οργανισμούς στο 90 κυκλοφόρησε ένα κείμενο που ονομάζεται "κίτρινο τραμ" ή "κίτρινο μετρό" λογική αντικαταστήσει Lorem Ipsum να δώσει μια πιο σύγχρονη ματιά στο περιεχόμενο. Αλλά πάρα πολλοί άνθρωποι έψαχναν για να διαβάσετε το κείμενο όταν ήταν στα γαλλικά ή στα αγγλικά, το επιθυμητό αποτέλεσμα δεν επιτεύχθηκε. Δουλεύοντας με ευανάγνωστο κείμενο, που περιέχει οδηγίες μπορεί να προκαλέσει περισπασμούς και αυτό μπορεί να βοηθήσει να επικεντρωθεί στην διάταξη.
+
+            Το πλεονέκτημα της λατινικής προέλευσης και το περιεχόμενο ανοησίες Lorem Ipsum εμποδίζει τον αναγνώστη από το να αποσπούν την προσοχή από το περιεχόμενο του κειμένου και ως εκ τούτου μπορεί να εστιάσει την προσοχή της στην γραφιστική. Πράγματι, το κείμενο Lorem Ipsum έχει το πλεονέκτημα σε αντίθεση με ένα γενικό κείμενο χρησιμοποιώντας μεταβλητό μήκος λέξης για να προσομοιώσει μια κανονική πληρότητα του μοντέλου, έτσι ώστε να ταιριάζει με το τελικό προϊόν και να διασφαλίσει το μέλλον αναλλοίωτη δημοσίευση. </div>
+          <div class="textbox">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae saepe quibusdam voluptatum, amet adipisci quis perspiciatis deleniti optio nemo eos maiores ratione delectus tempore? Iure id eligendi repudiandae tempore mollitia.</div>
+          <div class="textbox">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae saepe quibusdam voluptatum, amet adipisci quis perspiciatis deleniti optio nemo eos maiores ratione delectus tempore? Iure id eligendi repudiandae tempore mollitia.</div>
+          <div class="textbox">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae saepe quibusdam voluptatum, amet adipisci quis perspiciatis deleniti optio nemo eos maiores ratione delectus tempore? Iure id eligendi repudiandae tempore mollitia.</div>
+          <div class="textbox">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae saepe quibusdam voluptatum, amet adipisci quis perspiciatis deleniti optio nemo eos maiores ratione delectus tempore? Iure id eligendi repudiandae tempore mollitia.</div>
+          <div class="textbox">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae saepe quibusdam voluptatum, amet adipisci quis perspiciatis deleniti optio nemo eos maiores ratione delectus tempore? Iure id eligendi repudiandae tempore mollitia.</div>
+          </main>
+        <!-- End of Dynamic Website Content -->
+      </div>
+      <footer class="footer">
+        <button class="social_button rounded" onclick="addclass('top','red')">a</button>
+        <button class="social_button rounded">a</button>
+        <button class="social_button rounded">a</button>   
+      </footer>
+  </div>
+  </div>
+  <script src="myscript.js"></script>
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 </body>
-</html>
+</html> 
