@@ -14,13 +14,15 @@ let element = document.getElementById(id);
 }
 
 function swapcontent(newcontent){
+    
     console.log(newcontent+'.html');
     let currentcontent = document.getElementById("content");
     currentcontent.classList.add('faded');
-    setTimeout(function() { swapcontenthtml(currentcontent, newcontent); }, animationTime);
+    
     
     fetch(newcontent+'.html')
     .then(response=>console.log(response));
+    .then(response=>swapcontenthtml(response) );
 
     function swapcontenthtml(currentcontent, newcontent) {
         currentcontent.innerHTML = newcontent;
