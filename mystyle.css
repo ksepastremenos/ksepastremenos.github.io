@@ -44,7 +44,7 @@ body {
 
 /*for colorful emphasis text*/
 .emphasis{
-	background: linear-gradient(-45deg, #ff00cc,#ff5d5d, #ff00cc, #ff5d5d);
+	background: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-color-light), var(--accent-color-dark),var(--accent-color-light));
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
  background-attachment: fixed;
@@ -149,16 +149,40 @@ button:active{
 
 /*buttons for contact at footer*/
 .social_button{
-  background-color: var(--bg-color-darker);
+  flex-shrink: 0;
+  position: relative;
+  background-color: rgba(0,0,0,1);
   margin-left: .5rem;
   margin-right: .5rem;
-  width: 3rem;
-  height: 3rem;
+  margin-bottom: .5rem;
+  width: 3.3rem;
+  height: 3.3rem;
   transition: 0.3s; /*for hover animation*/
 }
+.social_button>img{
+  height: 55%;
+  width: 55%;
+  /* width: 3rem; */
+}
+.social_button:hover,.social_button:active{
+  background-color:rgba(0,0,0,0);
+}
 .social_button:hover
+.buttonBackground
 {
-background-color: var(--accent-color-light);
+/* background-color: var(--accent-color-light); */
+/* margin-left: .5rem;
+margin-right: .5rem; */
+z-index: -1;
+width: 3.3rem;
+height: 3.3rem;
+position:absolute;
+top: 0;
+left: 0;
+background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-color-light), var(--accent-color-dark),var(--accent-color-light));
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+ background-attachment: fixed;
 }
 
 /*for smoothing hard edges*/
@@ -167,15 +191,25 @@ background-color: var(--accent-color-light);
 }
 
 
-
+.footernote{
+  position: absolute;
+  font-size: 90%; /*ligo mikrotero apo normal gia ta megala keimena, to small einai poly mikro*/
+  line-height: 175%;
+  color:var(--text-color-low-contrast);
+  top:-1rem;
+  left:auto;
+}
 .footer {  
   /* flex-shrink: 0; */
+  position: relative;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
+  /* background-color: red; */
 
-  height: 5rem;
-  padding: 1rem;
+  /* height: 5rem; */
+  padding: 1.7rem 1rem  .5rem 1rem;
 }
 
 .textbox{
