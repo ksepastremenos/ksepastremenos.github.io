@@ -1,51 +1,117 @@
 let animationTime = 300;
+const currentUrl = new URL(document.location);
+let params = currentUrl.searchParams;
+let currentLang=params.get('lang');
+let currentPage=params.get('page');
+let currentcontent = document.getElementById("content");
+const englishContent = document.querySelectorAll("[lang='en']");
+const greekContent = document.querySelectorAll("[lang='gr']");
+console.log(greekContent);
+console.log(englishContent)
 
-function addclass(id,classname,hideafter){
-let element = document.getElementById(id);
-    element.classList.add(classname);
-    if (hideafter == 'y' ) {
-        setTimeout(function() { hide(element); }, animationTime);
-    }
-
-    function hide(toHide) {
-        toHide.style.display = "none";
-        console.log("ab");
-    }
+//initialize params if none
+if (currentLang == null){
+    currentLang = 'en';
+    
+    currentUrl.searchParams.append('lang', 'en');
+    history.replaceState(null,'',currentUrl); //update url
+    console.log(currentUrl);
+}
+if (currentPage == null){
+    currentPage = 'index';
+    currentUrl.searchParams.append('page', 'index');
+    history.replaceState(null,'',currentUrl); //update url
+    document.title = 'rigascg - home'
+    console.log(currentUrl);
 }
 
-function swapcontent(newcontent){
-    
-    console.log(newcontent+'.html');
+
+// function addclass(id,classname,hideafter){
+// let element = document.getElementById(id);
+//     element.classList.add(classname);
+//     if (hideafter == 'y' ) {
+//         setTimeout(function() { hide(element); }, animationTime);
+//     }
+
+//     function hide(toHide) {
+//         toHide.style.display = "none";
+//         console.log("ab");
+//     }
+// }
+function swapLanguage(){ //for swapping languages
+    if (currentLang =='en') { //if was english, swap to greek
+        currentLang='gr';
+        
+        document.getElementById("english").classList.remove('current', 'emphasis', 'strong');
+        document.getElementById("english").classList.add('notCurrent', 'weak');
+        document.getElementById("greek").classList.remove('notCurrent', 'weak');
+        document.getElementById("greek").classList.add('current', 'emphasis', 'strong');
+
+        englishContent.forEach(element => {
+            element.style.display = "none";
+            console.log(element.innerHTML+" 1");
+
+
+        });
+        greekContent.forEach(element => {
+            element.style.display = "inline";
+            console.log(element.innerHTML+" 2");
+        });
+        
+    }
+
+    else{ //if was greek, swap to english
+        currentLang='en'
+
+        document.getElementById("greek").classList.remove('current', 'emphasis', 'strong');
+        document.getElementById("greek").classList.add('notCurrent', 'weak');
+        document.getElementById("english").classList.remove('notCurrent', 'weak');
+        document.getElementById("english").classList.add('current', 'emphasis', 'strong');
+
+        englishContent.forEach(element => {
+            element.style.display = "inline";
+            console.log(element.innerHTML+" 3");
+        });
+        greekContent.forEach(element => {
+            element.style.display = "none";
+            console.log(element.innerHTML+" 4");
+        });
+
+    }
+    console.log(currentLang);
+}
+
+function swapContent(newcontent){    
+    // console.log(newcontent+'.html');
     let currentcontent = document.getElementById("content");
-    currentcontent.classList.remove('unfaded');
-    currentcontent.classList.add('faded');
-    
-    
-    fetch(newcontent+'.html')
-    .then(response=>response.text())
-    // .then(response=>console.log(response.text))
-    .then(responsetext =>{
-        console.log(responsetext+' neo');
-        setTimeout(function() { swapcontenthtml(currentcontent,responsetext); }, animationTime)
-    ;
-    })
+    let offlinetext = '<div lang=&quot;en&quot;>Haha, local text</div><div lang=&quot;gr&quot;>χαχα, τοπικό κείμενο</div>';
+    console.log(currentLang);
+
+        currentcontent.classList.remove('unfaded');
+        currentcontent.classList.add('faded');   
+
+        switch(window.location.protocol) {
+            case 'http:':
+            case 'https:':
+                //online file
+                fetch(newcontent+'_'+currentLang+'.html')
+                .then(response=>response.text())
+                .then(responsetext =>{setTimeout(function() { swapcontenthtml(currentcontent,responsetext); }, animationTime);})
+              break;
+            case 'file:':
+              //local file
+              setTimeout(function() { swapcontenthtml(currentcontent,offlinetext); }, animationTime);
+              break;
+            default: 
+              //some other protocol
+        //  }
+       
+    } 
 
     function swapcontenthtml(currentcontent, newcontent) {
         currentcontent.innerHTML = newcontent;
         currentcontent.classList.remove('faded')
         currentcontent.classList.add('unfaded');
-        console.log('changed inner html');
-    }
-
-    
-    
-        
+    }    
 }
 
-
-// setTimeout(hide(document.getElementById("content")), 3000);
-// function hide(toHide) 
-// {
-//     toHide.style.display = "none";
-//     console.log("ab");
-// }

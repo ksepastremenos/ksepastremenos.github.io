@@ -13,15 +13,15 @@
       <div class="topcontainer">
         <header class="container header">
           <div class="logoandlanguage">
-          <button class="logoall"><span class="logowhite weak">rigas</span><span class="logocolor">cg</span></button>
+          <button class="logoall" onclick="swapContent('home')"><span class="logowhite weak">rigas</span><span class="logocolor">cg</span></button>
           <!-- <div class="emphasis strong">-</div> -->
-          <button class="languageselector"><span class="greek">gr</span><span class="strong"> · </span><span class="english emphasis strong">en</span></button>
+          <button class="languageselector" onclick="swapLanguage()"><span id="greek" class="notCurrent weak">gr</span><span class="strong"> · </span><span id="english" class="current emphasis strong">en</span></button>
           </div>
 
           <nav>
-            <button style="display: inline-block;" class="fade" onclick="addclass('content','faded','y')">about</button>
-            <button style="display: inline-block;"class="fade"  onclick="swapcontent('portfolio')">portfolio</button>
-            <button style="display: inline-block;"class="fade" >contact</button>
+            <button style="display: inline-block;" class="fade" onclick="swapContent('about')"><span lang="en">about</span><span lang="gr" style="display:none">σχετικά</span></button>
+            <button style="display: inline-block;" class="fade" onclick="swapContent('portfolio')"><span lang="en">portfolio</span><span lang="gr"style="display:none">πορτφόλιο</span></button>
+            <button style="display: inline-block;" class="fade" onclick="swapContent('contact')"><span lang="en">contact</span><span lang="gr"style="display:none">επικοινωνία</span></button>
           </nav>
 
         </header>
@@ -47,7 +47,7 @@
         <!-- End of Dynamic Website Content -->
       </div>
       <footer class="footer">
-        <p class="footernote emphasis strong">let's keep in touch !</p> 
+        <p class="footernote"><i><span lang="en">let's keep in touch !</span><span lang="gr" style="display:none">μη χαθούμε !</span></i></p> 
         <a href="https://www.artstation.com/k-pasta" target="_blank"><button class="social_button rounded"><img src="images/icons/icon_artstation.png" alt="artstation" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>
         <a href="https://www.instagram.com/rigas.cg/" target="_blank"><button class="social_button rounded"><img src="images/icons/icon_instagram.png" alt="instagram" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>
         <a href="https://www.behance.net/ksepastksepast" target="_blank"><button class="social_button rounded"><img src="images/icons/icon_behance.png" alt="behance" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>

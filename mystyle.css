@@ -251,6 +251,16 @@ background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-
   display: none;
 }
 
+.logoall{
+  /* position: absolute; */
+  padding: 1rem; /*
+  margin-top: 0.25rem; */
+  /* font-size:1.3rem;
+  letter-spacing:-1px; */
+  font-weight: 700;
+  /* left: 0px; */
+  z-index: 1;
+}
 .logocolor{
   background-image: linear-gradient(90deg, #ff5d5d, #ff00cc);
   background-clip: text;
@@ -277,16 +287,7 @@ color: transparent;
   100%{  text-shadow: 0.1em 0 0.001em #ff00cc,
     -0.1em 0em 0.001em #ff5d5d;}
 }
-.logoall{
-  /* position: absolute; */
-  padding: 1rem; /*
-  margin-top: 0.25rem; */
-  /* font-size:1.3rem;
-  letter-spacing:-1px; */
-  font-weight: 700;
-  /* left: 0px; */
-  z-index: 1;
-}
+
 
 .languageselector{
   /* position: absolute;
@@ -298,8 +299,9 @@ color: transparent;
   z-index: 1;
 }
 
-.languageselector:hover>.greek{
-  font-weight: 700 !important;
+.languageselector:hover>.notCurrent{
+  /* font-weight: 700 !important; */
+  animation: glitch 800ms infinite;
 }
 
 
