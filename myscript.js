@@ -17,6 +17,7 @@ function swapcontent(newcontent){
     
     console.log(newcontent+'.html');
     let currentcontent = document.getElementById("content");
+    currentcontent.classList.remove('unfaded');
     currentcontent.classList.add('faded');
     
     
@@ -31,6 +32,7 @@ function swapcontent(newcontent){
 
     function swapcontenthtml(currentcontent, newcontent) {
         currentcontent.innerHTML = newcontent;
+        currentcontent.classList.remove('faded')
         currentcontent.classList.add('unfaded');
         console.log('changed inner html');
     }
