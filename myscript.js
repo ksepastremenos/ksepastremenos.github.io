@@ -25,7 +25,8 @@ function swapcontent(newcontent){
     // .then(response=>console.log(response.text))
     .then(responsetext =>{
         console.log(responsetext+' neo');
-    swapcontenthtml(currentcontent,responsetext);
+        setTimeout(function() { swapcontenthtml(currentcontent,responsetext); }, animationTime)
+    ;
     })
 
     function swapcontenthtml(currentcontent, newcontent) {
