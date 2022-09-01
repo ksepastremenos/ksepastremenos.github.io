@@ -6,8 +6,7 @@ let currentPage=params.get('page');
 let currentcontent = document.getElementById("content");
 const englishContent = document.querySelectorAll("[lang='en']");
 const greekContent = document.querySelectorAll("[lang='gr']");
-console.log(greekContent);
-console.log(englishContent)
+
 
 //initialize params if none
 if (currentLang == null){
@@ -21,6 +20,17 @@ if (currentPage == null){
     currentUrl.searchParams.append('page', 'home');
     history.replaceState(null,'',currentUrl); //update url
     document.title = 'rigascg - home';
+}
+else if (currentLang == 'en')
+{
+    swapContent(currentPage);
+}
+else if (currentLang == 'gr')
+{
+    currentLang = 'en';
+    console.log('case study');
+    swapLanguage();
+    
 }
 
 
@@ -50,13 +60,13 @@ function swapLanguage(){ //for swapping languages
 
         englishContent.forEach(element => {
             element.style.display = "none";
-            console.log(element.innerHTML+" 1");
+   
 
 
         });
         greekContent.forEach(element => {
             element.style.display = "inline";
-            console.log(element.innerHTML+" 2");
+
         });
         
     }
@@ -73,15 +83,14 @@ function swapLanguage(){ //for swapping languages
 
         englishContent.forEach(element => {
             element.style.display = "inline";
-            console.log(element.innerHTML+" 3");
+
         });
         greekContent.forEach(element => {
             element.style.display = "none";
-            console.log(element.innerHTML+" 4");
+
         });
 
     }
-    console.log(currentLang);
     
     swapContent(currentPage); //refresh page. swap content takes into account set language
 }
