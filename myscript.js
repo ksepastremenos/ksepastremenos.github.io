@@ -22,8 +22,8 @@ function swapcontent(newcontent){
     
     fetch(newcontent+'.html')
     .then(response=>response.text())
-    .then(response=>console.log(response.text()))
-    .then(response=>swapcontenthtml(currentcontent,'<h1>OMGBRO</h1>'));
+    .then(response=>console.log(response.text))
+    .then(response=>swapcontenthtml(currentcontent,'OMGBRO'));
 
     function swapcontenthtml(currentcontent, newcontent) {
         currentcontent.innerHTML = newcontent;
