@@ -15,14 +15,12 @@ if (currentLang == null){
     
     currentUrl.searchParams.append('lang', 'en');
     history.replaceState(null,'',currentUrl); //update url
-    console.log(currentUrl);
 }
 if (currentPage == null){
-    currentPage = 'index';
-    currentUrl.searchParams.append('page', 'index');
+    currentPage = 'home';
+    currentUrl.searchParams.append('page', 'home');
     history.replaceState(null,'',currentUrl); //update url
-    document.title = 'rigascg - home'
-    console.log(currentUrl);
+    document.title = 'rigascg - home';
 }
 
 
@@ -38,10 +36,13 @@ if (currentPage == null){
 //         console.log("ab");
 //     }
 // }
+
 function swapLanguage(){ //for swapping languages
     if (currentLang =='en') { //if was english, swap to greek
         currentLang='gr';
+        currentUrl.searchParams.set("lang","gr");
         
+
         document.getElementById("english").classList.remove('current', 'emphasis', 'strong');
         document.getElementById("english").classList.add('notCurrent', 'weak');
         document.getElementById("greek").classList.remove('notCurrent', 'weak');
@@ -62,6 +63,8 @@ function swapLanguage(){ //for swapping languages
 
     else{ //if was greek, swap to english
         currentLang='en'
+        currentUrl.searchParams.set("lang","en");
+        
 
         document.getElementById("greek").classList.remove('current', 'emphasis', 'strong');
         document.getElementById("greek").classList.add('notCurrent', 'weak');
@@ -79,6 +82,8 @@ function swapLanguage(){ //for swapping languages
 
     }
     console.log(currentLang);
+    
+    swapContent(currentPage); //refresh page. swap content takes into account set language
 }
 
 function swapContent(newcontent){    
@@ -104,14 +109,17 @@ function swapContent(newcontent){
               break;
             default: 
               //some other protocol
-        //  }
-       
-    } 
+            } 
+    currentPage = newcontent;
+    currentUrl.searchParams.set("page",currentPage);
+    history.pushState(null,'',currentUrl); //update url + history
+    document.title = 'rigascg - '+newcontent;
 
     function swapcontenthtml(currentcontent, newcontent) {
         currentcontent.innerHTML = newcontent;
         currentcontent.classList.remove('faded')
         currentcontent.classList.add('unfaded');
     }    
+
 }
 
