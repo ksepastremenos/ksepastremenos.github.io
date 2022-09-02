@@ -4,16 +4,17 @@
 --accent-color-dark: #ff00cc;
 --bg-color: #181a1b;
 --bg-color-lighter: #373d41; 
---bg-color-darker: black;
+--bg-color-darker: #101111;
 --text-color: white;
 --text-color-low-contrast: #cccccc;
 
---site-max-width: 900px;
+--site-max-width: 1920px;
 --animations-time: 300ms;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); /* Ubuntu font */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap'); /*Ubuntu font bold*/
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@900&display=swap'); /*alegreya sans black*/
 
 /* get rid of default margins in body*/
 body,html { margin: 0; padding: 0;}
@@ -25,7 +26,8 @@ body {
     font-weight: 100;
     font-size: medium;
     text-align: justify;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
+    /* letter-spacing: 0.5px; */
     color:var(--text-color);
   /*page background*/
     background-color: var(--bg-color);
@@ -36,10 +38,20 @@ body {
   box-sizing: border-box;
 }
 
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  margin: .5rem;
+}
 /*selected text highlight color*/
 ::selection {
   background: var(--accent-color-light);
-  border-radius: 5px;
 }
 
 /*for colorful emphasis text*/
@@ -95,6 +107,7 @@ width:100%;
 .container{
   display: flex;
   justify-content: center;
+  align-items: baseline;
   position: relative;
   max-width: var(--site-max-width);
   margin-left: auto;
@@ -106,13 +119,14 @@ width:100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: .3rem;
 }
 
 /* underlined buttons */
 .fade{ 
   display: block; 
   position: relative; 
-  padding: 20px;}
+  padding: 1.3rem;}
 .fade::after {
   content: '';
   position: absolute;
@@ -155,9 +169,25 @@ button:active{
   margin-left: .5rem;
   margin-right: .5rem;
   margin-bottom: .5rem;
-  width: 3.3rem;
-  height: 3.3rem;
+  width: 2.8rem;
+  height: 2.8rem;
   transition: 0.3s; /*for hover animation*/
+}
+.buttonBackground
+{
+/* background-color: var(--accent-color-light); */
+/* margin-left: .5rem;
+margin-right: .5rem; */
+z-index: -1;
+width: 2.8rem;
+height: 2.8rem;
+position:absolute;
+top: 0;
+left: 0;
+background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-color-light), var(--accent-color-dark),var(--accent-color-light));
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+ background-attachment: fixed;
 }
 .social_button>img{
   height: 55%;
@@ -167,27 +197,12 @@ button:active{
 .social_button:hover,.social_button:active{
   background-color:rgba(0,0,0,0);
 }
-.social_button:hover
-.buttonBackground
-{
-/* background-color: var(--accent-color-light); */
-/* margin-left: .5rem;
-margin-right: .5rem; */
-z-index: -1;
-width: 3.3rem;
-height: 3.3rem;
-position:absolute;
-top: 0;
-left: 0;
-background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-color-light), var(--accent-color-dark),var(--accent-color-light));
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
- background-attachment: fixed;
-}
+/* .social_button:hover */
+
 
 /*for smoothing hard edges*/
 .rounded{
-  border-radius: .4rem;
+  border-radius: .2rem ;
 }
 
 
@@ -206,7 +221,8 @@ background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  /* background-color: red; */
+  background-color: var(--bg-color-darker);
+  z-index: 1;
 
   /* height: 5rem; */
   padding: 1.7rem 1rem  .5rem 1rem;
@@ -307,11 +323,14 @@ color: transparent;
 
 
 .header{
+  padding-bottom: .5rem;
   display: flex;
   flex-direction: column;
+  align-items: stretch !important;
+  background-color: var(--bg-color-darker);
 }
 .logoandlanguage{
-  padding-top: 1rem;
+  padding-top: .6rem;
   display: flex;
   justify-content: space-between;
   margin-bottom: -3.4rem;  
@@ -329,10 +348,10 @@ justify-content: center;
   align-items: center;
    }
    .logoandlanguage{
-  background-color: var(--bg-color-darker);
+  background-color: black;
   margin-top: -1.3rem;
     }
-    .fade {padding-bottom: 10px;}
+    /* .fade {padding-bottom: 10px;} */
 }
 
 @media (max-width:576px)
@@ -344,8 +363,8 @@ align-items: center;
 flex-direction: column;
  }
  .logoandlanguage{
-background-color: var(--bg-color-darker);
+background-color: black;
 margin-top: -1.3rem;
   }
-  .fade {padding-bottom: 10px;}
+  /* .fade {padding-bottom: 10px;} */
 }

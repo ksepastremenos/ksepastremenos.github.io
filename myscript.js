@@ -21,6 +21,10 @@ if (currentPage == null){
     history.replaceState(null,'',currentUrl); //update url
     document.title = 'rigascg - home';
 }
+
+// :::::::::::::: IMPORTANT ::::::::::::::
+// re-enable this later
+
 else if (currentLang == 'en')
 {
     swapContent(currentPage);
