@@ -59,7 +59,7 @@ h6 {
 	background: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-color-light), var(--accent-color-dark),var(--accent-color-light));
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
- background-attachment: fixed;
+ /* background-attachment: fixed; */
  background-clip: text;
 -webkit-background-clip: text;
 color: transparent;
@@ -126,7 +126,7 @@ width:100%;
 .fade{ 
   display: block; 
   position: relative; 
-  padding: 1.3rem;}
+  padding: 1.25rem;}
 .fade::after {
   content: '';
   position: absolute;
@@ -269,7 +269,7 @@ background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-
 
 .logoall{
   /* position: absolute; */
-  padding: 1rem; /*
+  padding: .65rem 1rem .65rem 1rem; /*
   margin-top: 0.25rem; */
   /* font-size:1.3rem;
   letter-spacing:-1px; */
@@ -309,7 +309,7 @@ color: transparent;
   /* position: absolute;
   font-size:1rem; */
   /* letter-spacing:-1px; */
-  padding: 1rem; /*
+  padding: .65rem 1rem .65rem 1rem; /*
   margin-top: 0.25rem;
   right: 0px; */
   z-index: 1;
@@ -336,6 +336,7 @@ color: transparent;
   margin-bottom: -3.4rem;  
 }
 .header>nav{
+  margin-top: .4rem;
 display: flex;
 justify-content: center;
  }
@@ -349,7 +350,7 @@ justify-content: center;
    }
    .logoandlanguage{
   background-color: black;
-  margin-top: -1.3rem;
+  margin-top: -1rem;
     }
     /* .fade {padding-bottom: 10px;} */
 }
@@ -364,7 +365,10 @@ flex-direction: column;
  }
  .logoandlanguage{
 background-color: black;
-margin-top: -1.3rem;
+margin-top: -1rem;
+  }
+  .fade{
+    padding: .65rem;
   }
   /* .fade {padding-bottom: 10px;} */
 }

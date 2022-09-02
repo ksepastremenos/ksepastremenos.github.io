@@ -24,12 +24,11 @@ if (currentPage == null){
 
 // :::::::::::::: IMPORTANT ::::::::::::::
 // re-enable this later
-
-else if (currentLang == 'en')
+else if (currentLang == 'en' && (window.location.protocol=='http:' || window.location.protocol=='https:'))
 {
     swapContent(currentPage);
 }
-else if (currentLang == 'gr')
+else if (currentLang == 'gr' && (window.location.protocol=='http:' || window.location.protocol=='https:'))
 {
     currentLang = 'en';
     console.log('case study');
