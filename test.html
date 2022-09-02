@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.mask1 {
+    width: 500px;
+    height: 500px;
+  -webkit-mask-image: url(https://kryogenix.org/images/css-jagged-cors/css-jagged-utah.png);
+  mask-image: url(https://kryogenix.org/images/css-jagged-cors/css-jagged-utah.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;   
+  -webkit-mask-position: left bottom;
+    mask-position: left bottom; 
+  background-color: red;
+}
+</style>
+</head>
+<body>
+
+<h1>The mask-image Property</h1>
+
+<h3>An image with a mask layer image:</h3>
+<div class="mask1">
+<img src="images/me/me.png" alt="Cinque Terre" width="600" height="400">
+</div>
+
+<h3>Original image:</h3>
+<img src="images/me/me.png" alt="Cinque Terre" width="600" height="400">
+
+</body>
+</html>
+
+
