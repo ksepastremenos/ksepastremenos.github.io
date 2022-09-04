@@ -148,5 +148,6 @@ for (i = 0; i < coll.length; i++) {
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     } 
+    console.log('toggled collapsible')
   });
 }
