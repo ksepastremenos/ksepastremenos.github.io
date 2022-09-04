@@ -47,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-
+  text-align: left;
   margin: .5rem;
 }
 /*selected text highlight color*/
@@ -116,26 +116,55 @@ width:100%;
   margin-right: auto;
 }
 
+.subtitle {
+ /* margin-top: -1.25rem; */
+ margin-bottom: -1.25rem;
+}
+
+.relative{
+  position: relative;
+  max-width: 35%;
+  /* flex-shrink: 0.1; */
+  
+  
+}
+.responsive{
+  max-width: 100%;
+  height: auto;
+}
+
 .mask{
-  min-width: 1000px;
-  min-height: 1000px;
-  -webkit-mask-image:url(images/me/me_mask_alpha_2.png);
-  mask-image: url(images/me/me_mask_alpha_2.png);
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image:url(https://ksepastremenos.github.io/images/me/me_mask_alpha.png);
+  mask-image: url(https://ksepastremenos.github.io/images/me/me_mask_alpha.png);
   -webkit-mask-repeat: no-repeat; 
   mask-repeat: no-repeat;
+  mask-size: contain;
+  /* mask-size: ; */
 
-  background-color: red;
+  background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-color-light), var(--accent-color-dark),var(--accent-color-light));
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 .shortContainer{
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  /* align-items: baseline; */
   position: relative;
   max-width: var(--site-max-width-text);
   /* width: 100%; */
   margin-left: auto;
   margin-right: auto;
   padding: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.shrink{
+  max-width:65%;
 }
 
 .verticalPageFlexbox{
@@ -211,7 +240,6 @@ left: 0;
 background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-color-light), var(--accent-color-dark),var(--accent-color-light));
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
- background-attachment: fixed;
 }
 .social_button>img{
   height: 55%;
@@ -252,11 +280,14 @@ background-image: linear-gradient(-45deg, var(--accent-color-dark),var(--accent-
   padding: 1.7rem 1rem  .5rem 1rem;
 }
 
+hr{
+  width: 100%;
+}
 .textbox{
   /*specific paragraph settings*/
   font-size: 90%; /*ligo mikrotero apo normal gia ta megala keimena, to small einai poly mikro*/
   line-height: 175%;
-
+width: 100%;
   max-width: var(--site-max-width);
   padding: 1rem;
 }
@@ -365,6 +396,45 @@ display: flex;
 justify-content: center;
  }
 
+ .columnLayout {
+  columns: 2;
+ }
+
+/* Collapsibles */
+.collapsible {
+  /* background-color: #777; */
+  /* color: white; */
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.activeCollapsible, .collapsible:hover {
+  background-color: var(--bg-color-darker);
+}
+
+.collapsible:after {
+  content: '\002B';
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.activeCollapsible:after {
+  content: "\2212";
+}
+
+.collapsibleContent {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  /* background-color: #f1f1f1; */
+}
 
 @media (max-width:768px){
   .header>nav{
@@ -377,6 +447,10 @@ justify-content: center;
   margin-top: -1rem;
     }
     /* .fade {padding-bottom: 10px;} */
+
+    .shrink {
+      max-width: 100%;
+    }
 }
 
 @media (max-width:576px)
