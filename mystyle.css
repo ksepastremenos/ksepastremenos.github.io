@@ -118,7 +118,7 @@ width:100%;
 
 .subtitle {
  /* margin-top: -1.25rem; */
- margin-bottom: -1.25rem;
+ /* margin-bottom: -1.25rem; */
 }
 
 .relative{
@@ -289,7 +289,11 @@ hr{
   line-height: 175%;
 width: 100%;
   max-width: var(--site-max-width);
-  padding: 1rem;
+  padding: 0rem 1rem 0rem 1rem ;
+  margin: 0rem;
+}
+.alignLeft{
+  text-align: left !important;
 }
 /*custom scrollbar*/
 .simplebar-scrollbar::before {
