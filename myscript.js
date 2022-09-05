@@ -162,3 +162,14 @@ function toggleCollapsible(sendingElement) {
     } 
     console.log('toggled collapsible')
 }
+
+function clipboard(data, message) {
+
+    navigator.clipboard.writeText(data);
+    let alert = document.querySelector('#copied');
+    alert.innerHTML='<p class="textbox copied">'+message+'</p>';
+
+        document.querySelector('#copied').style.display="inline";
+        // console.log('passed');
+    // }
+}
