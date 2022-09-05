@@ -173,3 +173,8 @@ function clipboard(data, message) {
         // console.log('passed');
     // }
 }
+
+function portfolio(param){
+    console.log(param);
+    
+}
