@@ -11,7 +11,6 @@ const greekContent = document.querySelectorAll("[lang='gr']");
 //initialize params if none
 if (currentLang == null){
     currentLang = 'en';
-    
     currentUrl.searchParams.append('lang', 'en');
     history.replaceState(null,'',currentUrl); //update url
 }
@@ -20,8 +19,9 @@ if (currentPage == null){
     currentUrl.searchParams.append('page', 'home');
     history.replaceState(null,'',currentUrl); //update url
     document.title = 'rigascg - home';
+    swapContent(currentPage);
+    
 }
-
 // :::::::::::::: IMPORTANT ::::::::::::::
 // re-enable this later
 else if (currentLang == 'en' && (window.location.protocol=='http:' || window.location.protocol=='https:'))
