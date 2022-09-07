@@ -481,7 +481,7 @@ text-align: center;
  /* top:50%; */
  opacity: 0;
  transition:opacity .3s;
- text-transform: lowercase;
+ /* text-transform: lowercase; best leave this to user*/
 }
 .portfolioEntry:hover p{
   opacity: 1;
