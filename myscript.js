@@ -10,31 +10,43 @@ const greekContent = document.querySelectorAll("[lang='gr']");
 
 //initialize params if none
 if (currentLang == null){
+    console.log("lang = null reached");
     currentLang = 'en';
     currentUrl.searchParams.append('lang', 'en');
     history.replaceState(null,'',currentUrl); //update url
 }
 if (currentPage == null){
+    console.log("page = null reached");
     currentPage = 'home';
     currentUrl.searchParams.append('page', 'home');
     history.replaceState(null,'',currentUrl); //update url
     document.title = 'rigascg - home';
-    swapContent(currentPage);
+    swapContent(currentPage, true);
     
 }
 // :::::::::::::: IMPORTANT ::::::::::::::
 // re-enable this later
 else if (currentLang == 'en' && (window.location.protocol=='http:' || window.location.protocol=='https:'))
 {
-    swapContent(currentPage);
+    console.log("english page update reached");
+    swapContent(currentPage, true);
 }
 else if (currentLang == 'gr' && (window.location.protocol=='http:' || window.location.protocol=='https:'))
 {
-    currentLang = 'en';
-    console.log('case study');
+    console.log('greek page update reached');
+    currentLang = 'en';    
     swapLanguage();
     
 }
+
+addEventListener('popstate', (event) => {
+    console.log(event); 
+    // document. location. reload();
+
+    currentLang = new URL(document.location).searchParams.get('lang');
+    currentPage = new URL(document.location).searchParams.get('page');
+    swapContent(currentPage, false);
+});
 
 
 // function addclass(id,classname,hideafter){
@@ -95,14 +107,14 @@ function swapLanguage(){ //for swapping languages
 
     }
     
-    swapContent(currentPage); //refresh page. swap content takes into account set language
+    swapContent(currentPage, true); //refresh page. swap content takes into account set language
 }
 
-function swapContent(newcontent){    
+function swapContent(newcontent,shouldUpdate){    
     // console.log(newcontent+'.html');
     let currentcontent = document.getElementById("content");
     let offlinetext = '<div lang=&quot;en&quot;>Haha, local text</div><div lang=&quot;gr&quot;>χαχα, τοπικό κείμενο</div>';
-    console.log(currentLang);
+    console.log("swap content reached");
 
         currentcontent.classList.remove('unfaded');
         currentcontent.classList.add('faded');   
@@ -124,7 +136,13 @@ function swapContent(newcontent){
             } 
     currentPage = newcontent;
     currentUrl.searchParams.set("page",currentPage);
-    history.pushState(null,'',currentUrl); //update url + history
+    if (shouldUpdate == true || shouldUpdate == null){
+        console.log('updated');
+        history.pushState(null,'',currentUrl); //update url + history
+    }
+    else {
+console.log('didnt update');
+    }
     document.title = 'rigascg - '+newcontent;
 
     function swapcontenthtml(currentcontent, newcontent) {
@@ -160,7 +178,6 @@ function toggleCollapsible(sendingElement) {
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     } 
-    console.log('toggled collapsible')
 }
 
 function clipboard(data, message) {
@@ -168,10 +185,7 @@ function clipboard(data, message) {
     navigator.clipboard.writeText(data);
     let alert = document.querySelector('#copied');
     alert.innerHTML='<p class="textbox copied">'+message+'</p>';
-
-        document.querySelector('#copied').style.display="inline";
-        // console.log('passed');
-    // }
+    document.querySelector('#copied').style.display="inline";
 }
 
 function portfolio(param){
