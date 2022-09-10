@@ -299,6 +299,9 @@ color: transparent;
 .alignLeft{
   text-align: left !important;
 }
+.alignCenter{
+  text-align: center;
+}
 
 .rounded{
   border-radius: .2rem ;
@@ -508,7 +511,9 @@ text-align: center;
   margin-top: .65rem;
   margin-bottom: .65rem;
 }
-
+.addBackArrow::before{
+  content: '⮌ ';
+}
 
 
 
