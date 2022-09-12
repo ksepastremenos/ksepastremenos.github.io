@@ -520,6 +520,9 @@ text-align: center;
 .hideWhenSmall{
   display: block;
 }
+.showWhenSmall{
+  display: none;
+}
 
 
 
@@ -548,6 +551,9 @@ text-align: center;
 {
 .hideWhenSmall{
   display: none;
+}
+.showWhenSmall{
+  display: block;
 }
 
  .header>nav{
