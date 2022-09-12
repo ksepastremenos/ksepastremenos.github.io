@@ -45,6 +45,46 @@ addEventListener('popstate', (event) => {
 
     currentLang = new URL(document.location).searchParams.get('lang');
     currentPage = new URL(document.location).searchParams.get('page');
+    if(currentLang == 'gr')
+    {
+        currentUrl.searchParams.set("lang","gr");
+        
+
+        document.getElementById("english").classList.remove('current', 'emphasis', 'strong');
+        document.getElementById("english").classList.add('notCurrent', 'weak');
+        document.getElementById("greek").classList.remove('notCurrent', 'weak');
+        document.getElementById("greek").classList.add('current', 'emphasis', 'strong');
+
+        englishContent.forEach(element => {
+            element.style.display = "none";
+   
+
+
+        });
+        greekContent.forEach(element => {
+            element.style.display = "inline";
+
+        });
+    }
+    else {
+        currentUrl.searchParams.set("lang","en");
+        
+
+        document.getElementById("greek").classList.remove('current', 'emphasis', 'strong');
+        document.getElementById("greek").classList.add('notCurrent', 'weak');
+        document.getElementById("english").classList.remove('notCurrent', 'weak');
+        document.getElementById("english").classList.add('current', 'emphasis', 'strong');
+
+        englishContent.forEach(element => {
+            element.style.display = "inline";
+
+        });
+        greekContent.forEach(element => {
+            element.style.display = "none";
+
+        });       
+    }
+
     swapContent(currentPage, false);
 });
 

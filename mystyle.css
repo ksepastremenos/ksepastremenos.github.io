@@ -478,6 +478,8 @@ font-weight:700;
   /* top: 0; */
   bottom: 15%;
   margin: auto;
+  padding-left: .75rem;
+  padding-right: .75rem;
 text-align: center;
 /* line-height: ; */
 /* vertical-align:bottom; */
@@ -515,7 +517,9 @@ text-align: center;
   content: '⮌ ';
 }
 
-
+.hideWhenSmall{
+  display: block;
+}
 
 
 
@@ -542,6 +546,10 @@ text-align: center;
 
 @media (max-width:576px)
 {
+.hideWhenSmall{
+  display: none;
+}
+
  .header>nav{
   margin-top: 3.5rem;
 display: flex;
