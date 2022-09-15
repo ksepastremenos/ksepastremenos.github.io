@@ -9,9 +9,10 @@ const greekContent = document.querySelectorAll("[lang='gr']");
 
 
 //initialize params if none
-if (currentLang == null || currentLang=='en'){
-    console.log("lang = null reached");
-    currentLang = 'gr';
+// if (currentLang == null || currentLang=='en'){
+//     console.log("lang = null reached");
+if (true){
+currentLang = 'gr';
     currentUrl.searchParams.append('lang', 'gr');
     history.replaceState(null,'',currentUrl); //update url
 
@@ -56,13 +57,13 @@ else{
 // }
 
 addEventListener('popstate', (event) => {
-    console.log(event); 
+    console.log("hi "+event); 
     // document. location. reload();
 
-    currentLang = new URL(document.location).searchParams.get('lang');
-    currentPage = new URL(document.location).searchParams.get('page');
-    if(currentLang == 'gr')
-    {
+    // currentLang = new URL(document.location).searchParams.get('lang');
+    // currentPage = new URL(document.location).searchParams.get('page');
+    // if(currentLang == 'gr')
+    // {
         currentUrl.searchParams.set("lang","gr");
         
 
@@ -81,25 +82,25 @@ addEventListener('popstate', (event) => {
             element.style.display = "inline";
 
         });
-    }
-    else {
-        currentUrl.searchParams.set("lang","en");
+    // }
+    // else {
+    //     currentUrl.searchParams.set("lang","en");
         
 
-        document.getElementById("greek").classList.remove('current', 'emphasis', 'strong');
-        document.getElementById("greek").classList.add('notCurrent', 'weak');
-        document.getElementById("english").classList.remove('notCurrent', 'weak');
-        document.getElementById("english").classList.add('current', 'emphasis', 'strong');
+    //     document.getElementById("greek").classList.remove('current', 'emphasis', 'strong');
+    //     document.getElementById("greek").classList.add('notCurrent', 'weak');
+    //     document.getElementById("english").classList.remove('notCurrent', 'weak');
+    //     document.getElementById("english").classList.add('current', 'emphasis', 'strong');
 
-        englishContent.forEach(element => {
-            element.style.display = "inline";
+    //     englishContent.forEach(element => {
+    //         element.style.display = "inline";
 
-        });
-        greekContent.forEach(element => {
-            element.style.display = "none";
+    //     });
+    //     greekContent.forEach(element => {
+    //         element.style.display = "none";
 
-        });       
-    }
+    //     });       
+    // }
 
     swapContent(currentPage, false);
 });
