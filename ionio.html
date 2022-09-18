@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ma in Digital Arts Application</title>
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.png">
+</head>
+
+<body>
+  <div class="scroller" data-simplebar>
+    <div class="mainFlexbox">
+      <div class="topcontainer">
+        <header class="container header">
+          <div class="logoandlanguage">
+          <button class="logoall" onclick="swapContent('ma-portfolio')" title="portfolio"><span class="logowhite weak">Ρήγας </span><span class="logocolor">Κούγκολος</span></button>
+          <button class="languageselector" onclick="swapLanguage()" title="change language"><span id="greek" class="notCurrent weak">gr</span><span class="strong"> · </span><span id="english" class="current emphasis strong">en</span></button>
+          </div>
+
+          <nav>
+            <!-- <button style="display: inline-block;" class="fade" onclick="swapContent('home')"><span lang="en">home</span><span lang="gr" style="display:none">αρχική</span></button> -->
+            <!-- <div class="hideWhenSmall">
+              <button style="display: inline-block;" class="fade" onclick="swapContent('home')" ><span lang="en">home</span><span lang="gr" style="display:none">αρχική</span></button>
+            </div> -->
+            <button style="display: inline-block;" class="fade" onclick="swapContent('ma-about')" ><span lang="en">CV</span><span lang="gr" style="display:none">βιογραφικό</span></button>
+            <button style="display: inline-block;" class="fade" onclick="swapContent('ma-portfolio')"><span lang="en">portfolio</span><span lang="gr"style="display:none">πορτφόλιο</span></button>
+            <button style="display: inline-block;" class="fade" onclick="swapContent('ma-statement')"><span lang="en">statement of purpose</span><span lang="gr"style="display:none">δήλωση σκοπού</span></button>
+          </nav>
+
+        </header>
+        
+        <main id="content" class="verticalPageFlexbox">
+<!-- ::::::::::::::::::: Dynamic Website Content :::::::::::::::::::::::::-->
+
+<!-- ::::::::::::::::::: End of Dynamic Website Content :::::::::::::::::::-->
+          </main>
+       
+      </div>
+      <footer class="footer">
+        <!-- <p class="footernote"><i><span lang="en">let's keep in touch!</span><span lang="gr" style="display:none">Δε χανόμαστε!</span></i></p>  -->
+        <a href="https://www.artstation.com/k-pasta" target="_blank"><button class="social_button rounded" title="artstation"><img src="images/icons/icon_artstation.png" alt="artstation" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>
+        <a href="https://www.instagram.com/rigas.cg/" target="_blank"><button class="social_button rounded" title="instagram"><img src="images/icons/icon_instagram.png" alt="instagram" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>
+        <a href="https://www.behance.net/ksepastksepast" target="_blank"><button class="social_button rounded" title="behance"><img src="images/icons/icon_behance.png" alt="behance" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>
+        <a href="https://www.linkedin.com/in/rigas-kougkolos/" target="_blank"><button class="social_button rounded" title="linkedin"><img src="images/icons/icon_linkedin.png" alt="linkedin" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>
+        <a href="mailto:rex_kungolos@hotmail.com"><button class="social_button rounded" title="e-mail"><img src="images/icons/icon_mail.png" alt="mail" height="28" width="28"><div class="buttonBackground rounded"></div></button></a>
+      </footer>
+      <div class="showWhenSmall" style="height:1rem;"></div>
+  </div>
+  </div>
+  <script src="ma-myscript.js"></script>
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+</body>
+</html>
