@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); /* Ubuntu font */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap'); /*Ubuntu font bold*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+}
+.a-loader-title {
+    color: #8183b1;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+  }
+
+/* #aframeFader {
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 0; 
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+width: 100%;
+pointer-events: none;
+} */
+
+#embedder {
+height: 100%;
+width: 100%;
+}
+
+.hidden {
+    display: none;
+}
