@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="aframe-master.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+     
+    <a-scene>
+        <a-entity id="rig" position="0 1.5 0">
+            <a-entity id="camera" camera="active: true"  rotation="0 0 0"></a-entity>
+          </a-entity>
+        <!-- <a-entity camera="active: true" look-controls position="0 3.6 0" data-aframe-default-camera></a-entity> -->
+
+        <a-sky color="#DDDDDD"></a-sky>
+<a-entity look-controls="reverseMouseDrag:true ">
+      <a-box  color="tomato" position="0 1 -5" animation="property: rotation; to: 0 360 360; dur: 3000; easing: linear; loop: true" >       
+        <a-box  color="red" position="0 0 -3" animation="property: rotation; to: 0 360 360; dur: 2000; easing: linear; loop: true"> 
+          <a-box  color="maroon" position="0 0 -2" width=".5"height=".5" animation="property: rotation; to: 0 360 360; dur: 1000; easing: linear; loop: true"> 
+            <a-box  color="maroon" position="0 0 -1" width=".1"height=".1" animation="property: rotation; to: 0 360 360; dur: 1000; easing: linear; loop: true"> </a-box>
+          </a-box> </a-box> </a-box>
+
+          <a-entity look-controls="reverseMouseDrag:true ">
+            <a-box  color="tomato" position="0 3 -5" animation="property: rotation; to: 0 -360 360; dur: 3000; easing: linear; loop: true" >       
+              <a-box  color="red" position="0 0 -3" animation="property: rotation; to: 0 -360 360; dur: 2500; easing: linear; loop: true"> 
+                <a-box  color="maroon" position="0 0 -2" width=".5"height=".5" animation="property: rotation; to: 0 360 -360; dur: 900; easing: linear; loop: true"> 
+                  <a-box  color="maroon" position="0 0 -1" width=".1"height=".1" animation="property: rotation; to: 0 -360 -360; dur: 1000; easing: linear; loop: true"> </a-box>
+                </a-box> </a-box> </a-box>
+        </a-entity>
+      <!-- <a-box color="tomato"></a-box> -->
+
+    </a-scene>
+</body>
+</html>
