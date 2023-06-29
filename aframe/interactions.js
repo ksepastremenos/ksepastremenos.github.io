@@ -82,7 +82,7 @@ document.querySelector('a-scene').addEventListener('loaded', function() {
 
 
   exit_page.addEventListener('click', function(){
-    window.location.href = "A-Frame.html";
+    window.location.href = "index.html";
   })
   
 
