@@ -35,6 +35,8 @@ function carousel() {
     }
 function anafora() {
 
-        alert("Δυστυχώς η αναφορά βρίσκεται στην διαδικασία συγγραφής ακόμα");
-  
+        // alert("Δυστυχώς η αναφορά βρίσκεται στην διαδικασία συγγραφής ακόμα");
+        setTimeout(() => {
+            window.location.href = "https://drive.google.com/file/d/1WhYqLQSRYKJNZeYzEBLT-w8jR3qkdiLp/view?usp=sharing";
+        }, 1000);    
 }
