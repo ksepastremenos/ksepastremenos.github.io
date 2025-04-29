@@ -1,0 +1,19 @@
+.md-header__button.md-logo img {
+    height: 48px;
+    /* or try 64px, adjust as needed */
+}
+
+.md-header__button.md-logo {
+    padding: 5px 5px 0 5px;
+    /* 5px padding around, 0 bottom */
+    margin: 0px;
+}
+
+
+.md-nav__title .md-nav__button img {
+    height: 80px;
+    /* Adjust as needed */
+    display: block;
+    margin: 0 auto;
+    /* Center horizontally */
+}

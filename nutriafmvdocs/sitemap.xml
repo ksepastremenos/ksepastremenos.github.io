@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://rigascg.com/nutriafmvdocs/index.html</loc>
+        <lastmod>2025-04-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rigascg.com/nutriafmvdocs/index.html"/>
+        <xhtml:link rel="alternate" hreflang="el" href="https://rigascg.com/nutriafmvdocs/el/index.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://rigascg.com/nutriafmvdocs/fr/index.html"/>
+    </url>
+    <url>
+        <loc>https://rigascg.com/nutriafmvdocs/code-examples.html</loc>
+        <lastmod>2025-04-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rigascg.com/nutriafmvdocs/code-examples.html"/>
+        <xhtml:link rel="alternate" hreflang="el" href="https://rigascg.com/nutriafmvdocs/el/code-examples.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://rigascg.com/nutriafmvdocs/fr/code-examples.html"/>
+    </url>
+    <url>
+        <loc>https://rigascg.com/nutriafmvdocs/fr/index.html</loc>
+        <lastmod>2025-04-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://rigascg.com/nutriafmvdocs/fr/index.html"/>
+        <xhtml:link rel="alternate" hreflang="el" href="https://rigascg.com/nutriafmvdocs/el/index.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rigascg.com/nutriafmvdocs/index.html"/>
+    </url>
+    <url>
+        <loc>https://rigascg.com/nutriafmvdocs/fr/code-examples.html</loc>
+        <lastmod>2025-04-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://rigascg.com/nutriafmvdocs/fr/code-examples.html"/>
+        <xhtml:link rel="alternate" hreflang="el" href="https://rigascg.com/nutriafmvdocs/el/code-examples.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rigascg.com/nutriafmvdocs/code-examples.html"/>
+    </url>
+    <url>
+        <loc>https://rigascg.com/nutriafmvdocs/el/index.html</loc>
+        <lastmod>2025-04-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="el" href="https://rigascg.com/nutriafmvdocs/el/index.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rigascg.com/nutriafmvdocs/index.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://rigascg.com/nutriafmvdocs/fr/index.html"/>
+    </url>
+    <url>
+        <loc>https://rigascg.com/nutriafmvdocs/el/code-examples.html</loc>
+        <lastmod>2025-04-29</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="el" href="https://rigascg.com/nutriafmvdocs/el/code-examples.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rigascg.com/nutriafmvdocs/code-examples.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://rigascg.com/nutriafmvdocs/fr/code-examples.html"/>
+    </url>
+</urlset>
