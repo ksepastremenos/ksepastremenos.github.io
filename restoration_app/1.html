@@ -37,11 +37,11 @@
 
     .top-bar .title {
       font-weight: bold;
-      font-size: 14px;
+      font-size: 18px;
     }
 
     .top-bar .desc {
-      font-size: 12px;
+      font-size: 16px;
       opacity: 0.8;
       margin-top: 4px;
     }
@@ -67,7 +67,7 @@
 
       color: white;
       font-family: Arial, sans-serif;
-      font-size: 14px;
+      font-size: 16px;
 
       min-width: min(600px, 90vw);
     }
@@ -77,10 +77,10 @@
       background: rgba(255, 255, 255, 0.12);
       border: none;
       color: white;
-      padding: 6px 12px;
+      padding: 10px 16px;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 16px;
     }
 
     button:hover {
@@ -93,6 +93,7 @@
       text-align: center;
       opacity: 0.9;
       user-select: none;
+      font-size: 16px;
     }
 
     #loaderOverlay {
@@ -225,14 +226,14 @@
     const models = [
       {
         file: 'vazo_0.glb',
-        title: 'Σαλατιέρα',
-        desc: 'Μια σπασμένη κεραμική σαλατιέρα κατασκευασμένη από τον Γιώργο Κοκοβλή. Δεν εχει βρεθεί το ένα κομμάτι',
+        title: 'Δοχείο',
+        desc: 'Ένα σπασμένο κεραμικό δοχείο κατασκευασμένο από τον Γιώργο Κοκοβλή. Οι διαστάσεις του είναι: 25 εκ. διάμετρος, 11.3 εκ ύψος. Δεν εχει βρεθεί το ένα κομμάτι.',
         isWireframe: false
       },
       {
         file: 'vazo_0.glb',
-        title: 'Σαλατιέρα (σχήμα)',
-        desc: 'Γεωμετρική ανάλυση της σπασμένης σαλατιέρας.',
+        title: 'Δοχείο (σχήμα)',
+        desc: 'Γεωμετρική ανάλυση του σπασμένου δοχείου.',
         isWireframe: true
       },
       {
@@ -249,77 +250,22 @@
       },
       {
         file: 'vazo_3.glb',
-        title: 'Σαλατιέρα με Υπολειπόμμενο κομμάτι',
-        desc: 'Η σαλατιέρα με την προσθήκη του εκτυπωμένου κομματιού.',
+        title: 'Δοχείο με υπολειπόμμενο κομμάτι',
+        desc: 'Το δοχείο με την προσθήκη του εκτυπωμένου κομματιού.',
         isWireframe: false
-      }
+      },
+      {
+        file: 'vazo_1.glb',
+        title: 'Δοχείο με υπολειπόμμενο κομμάτι',
+        desc: 'Υπόθεση του πλήρους σχήματος του δοχείου.',
+        isWireframe: false
+      },
     ];
 
     let currentIndex = 0;
     let model = null;
 
     loadModel(0);
-
-    // loader.load(
-    //   'vazo_2.glb',
-
-    //   (gltf) => {
-
-    //     model = gltf.scene;
-
-    //     // Force all meshes to use an unlit white material
-    //     model.traverse((child) => {
-
-    //       if (!child.isMesh) return;
-
-    //       if (data.isWireframe) {
-
-    //         child.material = new THREE.MeshBasicMaterial({
-    //           color: 0xff0000,
-    //           wireframe: true
-    //         });
-
-    //       }
-
-    //     });
-
-    //     // Calculate size
-    //     const box = new THREE.Box3().setFromObject(model);
-    //     const size = new THREE.Vector3();
-
-    //     box.getSize(size);
-
-    //     const maxDimension = Math.max(
-    //       size.x,
-    //       size.y,
-    //       size.z
-    //     );
-
-    //     // Match old cube size (~1.5 units)
-    //     const targetSize = 1.5;
-    //     const scale = targetSize / maxDimension;
-
-    //     model.scale.setScalar(scale);
-
-    //     // Recalculate box after scaling
-    //     box.setFromObject(model);
-
-    //     // Center model at origin
-    //     const center = new THREE.Vector3();
-    //     box.getCenter(center);
-
-    //     model.position.sub(center);
-
-    //     scene.add(model);
-
-    //   },
-
-    //   undefined,
-
-    //   (error) => {
-    //     console.error('Error loading model:', error);
-    //   }
-    // );
 
     // Interaction state
     let isDragging = false;
@@ -422,6 +368,25 @@
 
       document.querySelector('#infoBox .title').textContent = data.title;
       document.querySelector('#infoBox .desc').textContent = data.desc;
+
+      updateButtons();
+    }
+
+    function updateButtons() {
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      if (currentIndex === 0) {
+        prevBtn.textContent = 'Τελευταίο';
+      } else {
+        prevBtn.textContent = 'Προηγούμενο';
+      }
+
+      if (currentIndex === models.length - 1) {
+        nextBtn.textContent = 'Πίσω στην αρχή';
+      } else {
+        nextBtn.textContent = 'Επόμενο';
+      }
     }
 
     function showLoader() {
