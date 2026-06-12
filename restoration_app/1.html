@@ -391,11 +391,10 @@
 
           if (xhr.total) {
 
-            const percent =
-              (xhr.loaded / xhr.total) * 100;
+            const percent = (xhr.loaded / xhr.total) * 100;
 
             loadingText.textContent =
-              `${Math.round(percent)}%`;
+              `${Math.min(100, Math.round(percent))}%`;
           }
         },
 
