@@ -151,7 +151,10 @@
   </div>
 
   <div id="loaderOverlay">
-    <div class="spinner"></div>
+    <div style="text-align:center; color:white; font-family:Arial;">
+      <div class="spinner" style="margin:0 auto 12px;"></div>
+      <div id="loadingText">0%</div>
+    </div>
   </div>
 
   <div class="bottom-bar">
@@ -176,6 +179,9 @@
 
     const loaderOverlay =
       document.getElementById('loaderOverlay');
+
+    const loadingText =
+      document.getElementById('loadingText');
 
     document.getElementById('prevBtn').addEventListener('click', () => {
 
@@ -340,6 +346,7 @@
       }
 
       showLoader();
+      loadingText.textContent = "0%";
 
       loader.load(
 
@@ -379,12 +386,24 @@
           hideLoader();
         },
 
-        undefined,
+        // progress callback
+        (xhr) => {
+
+          if (xhr.total) {
+
+            const percent =
+              (xhr.loaded / xhr.total) * 100;
+
+            loadingText.textContent =
+              `${Math.round(percent)}%`;
+          }
+        },
 
         (error) => {
 
           console.error(error);
 
+          loadingText.textContent = "Error";
           hideLoader();
         }
 
