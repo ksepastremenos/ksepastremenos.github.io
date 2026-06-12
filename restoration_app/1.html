@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.js White Unlit Cube</title>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      touch-action: none;
+    }
+
+    /* TOP BAR (full width) */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 14px 18px;
+      box-sizing: border-box;
+
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+
+      color: white;
+      font-family: Arial, sans-serif;
+
+      text-align: center;
+    }
+
+    .top-bar .title {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .top-bar .desc {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    /* BOTTOM BAR (flex layout) */
+    .bottom-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      padding: 10px 14px;
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+
+      min-width: min(600px, 90vw);
+    }
+
+    /* buttons */
+    button {
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* center hint text */
+    .hint-text {
+      flex: 1;
+      text-align: center;
+      opacity: 0.9;
+      user-select: none;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165/examples/jsm/"
+  }
+}
+</script>
+</head>
+
+<body>
+  <div class="top-bar" id="infoBox">
+    <div class="title">Model 1</div>
+    <div class="desc">This is the first model description.</div>
+  </div>
+
+  <div class="bottom-bar">
+    <button id="prevBtn">Προηγούμενο</button>
+
+    <div class="hint-text">
+      Σύρτε δεξιά / αριστερά για περιστροφή.
+    </div>
+
+    <button id="nextBtn">Επόμενο</button>
+  </div>
+
+  <script type="module">
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+
+      const next = (currentIndex + 1) % models.length;
+      loadModel(next);
+
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+
+      const prev = (currentIndex - 1 + models.length) % models.length;
+      loadModel(prev);
+
+    });
+
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165/build/three.module.js';
+    import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.165/examples/jsm/loaders/GLTFLoader.js';
+
+    // Scene
+    const scene = new THREE.Scene();
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      100
+    );
+
+    camera.position.z = 3.5;
+    camera.position.y = 0.8;
+    camera.rotation.x = -THREE.MathUtils.degToRad(10);
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true
+    });
+
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    document.body.appendChild(renderer.domElement);
+
+    // Model
+    const loader = new GLTFLoader();
+
+    const models = [
+      {
+        file: 'vazo_0.glb',
+        title: 'Vase I',
+        desc: 'Solid red version.',
+        isWireframe: false
+      },
+      {
+        file: 'vazo_0.glb',
+        title: 'Vase II',
+        desc: 'Wireframe study.',
+        isWireframe: true
+      },
+      {
+        file: 'vazo_2.glb',
+        title: 'Vase III',
+        desc: 'Another solid version.',
+        isWireframe: false
+      }
+    ];
+
+    let currentIndex = 0;
+    let model = null;
+
+    loadModel(0);
+
+    // loader.load(
+    //   'vazo_2.glb',
+
+    //   (gltf) => {
+
+    //     model = gltf.scene;
+
+    //     // Force all meshes to use an unlit white material
+    //     model.traverse((child) => {
+
+    //       if (!child.isMesh) return;
+
+    //       if (data.isWireframe) {
+
+    //         child.material = new THREE.MeshBasicMaterial({
+    //           color: 0xff0000,
+    //           wireframe: true
+    //         });
+
+    //       }
+
+    //     });
+
+    //     // Calculate size
+    //     const box = new THREE.Box3().setFromObject(model);
+    //     const size = new THREE.Vector3();
+
+    //     box.getSize(size);
+
+    //     const maxDimension = Math.max(
+    //       size.x,
+    //       size.y,
+    //       size.z
+    //     );
+
+    //     // Match old cube size (~1.5 units)
+    //     const targetSize = 1.5;
+    //     const scale = targetSize / maxDimension;
+
+    //     model.scale.setScalar(scale);
+
+    //     // Recalculate box after scaling
+    //     box.setFromObject(model);
+
+    //     // Center model at origin
+    //     const center = new THREE.Vector3();
+    //     box.getCenter(center);
+
+    //     model.position.sub(center);
+
+    //     scene.add(model);
+
+    //   },
+
+    //   undefined,
+
+    //   (error) => {
+    //     console.error('Error loading model:', error);
+    //   }
+    // );
+
+    // Interaction state
+    let isDragging = false;
+    let previousX = 0;
+    let rotationVelocity = 0;
+
+    const dragSensitivity = 0.01;
+    const damping = 0.92;
+
+    function pointerDown(x) {
+      isDragging = true;
+      previousX = x;
+    }
+
+    function pointerMove(x) {
+      if (!isDragging) return;
+
+      const deltaX = x - previousX;
+      previousX = x;
+
+      rotationVelocity = deltaX * dragSensitivity;
+    }
+
+    function pointerUp() {
+      isDragging = false;
+    }
+
+    function loadModel(index) {
+
+      currentIndex = index;
+
+      const data = models[index];
+
+      if (model) {
+        scene.remove(model);
+      }
+
+      loader.load(data.file, (gltf) => {
+
+        model = gltf.scene;
+
+        model.traverse((child) => {
+
+          if (!child.isMesh) return;
+
+          if (data.isWireframe) {
+
+            // solid base (unlit)
+            const solid = new THREE.MeshBasicMaterial({
+              color: 0x27689e
+            });
+
+            child.material = solid;
+
+            // wireframe overlay (edges only)
+            const edges = new THREE.EdgesGeometry(child.geometry);
+
+            const lines = new THREE.LineSegments(
+              edges,
+              new THREE.LineBasicMaterial({
+                color: 0xffffff
+
+              })
+            );
+
+            child.add(lines);
+          }
+
+        });
+
+        scene.add(model);
+
+      });
+
+      document.querySelector('#infoBox .title').textContent = data.title;
+      document.querySelector('#infoBox .desc').textContent = data.desc;
+    }
+
+    // Mouse events
+    window.addEventListener('mousedown', (e) => {
+      pointerDown(e.clientX);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      pointerMove(e.clientX);
+    });
+
+    window.addEventListener('mouseup', pointerUp);
+    window.addEventListener('mouseleave', pointerUp);
+
+    // Touch events
+    window.addEventListener('touchstart', (e) => {
+      pointerDown(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      pointerMove(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchend', pointerUp, { passive: true });
+
+    // Resize
+    window.addEventListener('resize', () => {
+
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(
+        window.innerWidth,
+        window.innerHeight
+      );
+
+    });
+
+    // Animation loop
+    function animate() {
+
+      requestAnimationFrame(animate);
+
+      if (model) {
+        model.rotation.y += rotationVelocity;
+      }
+
+      rotationVelocity *= damping;
+
+      renderer.render(scene, camera);
+
+    }
+
+    animate();
+  </script>
+</body>
+
+</html>
