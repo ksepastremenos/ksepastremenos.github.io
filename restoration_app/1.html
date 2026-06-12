@@ -94,6 +94,45 @@
       opacity: 0.9;
       user-select: none;
     }
+
+    #loaderOverlay {
+      position: fixed;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(4px);
+
+      z-index: 999;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    #loaderOverlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top-color: white;
+      border-radius: 50%;
+
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
   <script type="importmap">
 {
@@ -111,6 +150,10 @@
     <div class="desc">This is the first model description.</div>
   </div>
 
+  <div id="loaderOverlay">
+    <div class="spinner"></div>
+  </div>
+
   <div class="bottom-bar">
     <button id="prevBtn">Προηγούμενο</button>
 
@@ -122,7 +165,6 @@
   </div>
 
   <script type="module">
-
     document.getElementById('nextBtn').addEventListener('click', () => {
 
       const next = (currentIndex + 1) % models.length;
@@ -292,45 +334,70 @@
         scene.remove(model);
       }
 
-      loader.load(data.file, (gltf) => {
+      showLoader();
 
-        model = gltf.scene;
+      loader.load(
 
-        model.traverse((child) => {
+        data.file,
 
-          if (!child.isMesh) return;
+        (gltf) => {
 
-          if (data.isWireframe) {
+          model = gltf.scene;
 
-            // solid base (unlit)
-            const solid = new THREE.MeshBasicMaterial({
-              color: 0x27689e
-            });
+          model.traverse((child) => {
 
-            child.material = solid;
+            if (!child.isMesh) return;
 
-            // wireframe overlay (edges only)
-            const edges = new THREE.EdgesGeometry(child.geometry);
+            if (data.isWireframe) {
 
-            const lines = new THREE.LineSegments(
-              edges,
-              new THREE.LineBasicMaterial({
-                color: 0xffffff
+              const solid = new THREE.MeshBasicMaterial({
+                color: 0x27689e
+              });
 
-              })
-            );
+              child.material = solid;
 
-            child.add(lines);
-          }
+              const edges = new THREE.EdgesGeometry(child.geometry);
 
-        });
+              const lines = new THREE.LineSegments(
+                edges,
+                new THREE.LineBasicMaterial({
+                  color: 0xffffff
+                })
+              );
 
-        scene.add(model);
+              child.add(lines);
+            }
+          });
 
-      });
+          scene.add(model);
+
+          hideLoader();
+        },
+
+        undefined,
+
+        (error) => {
+
+          console.error(error);
+
+          hideLoader();
+        }
+
+      );
 
       document.querySelector('#infoBox .title').textContent = data.title;
       document.querySelector('#infoBox .desc').textContent = data.desc;
+    }
+
+    const loaderOverlay =
+      document.getElementById('loaderOverlay');
+
+    function showLoader() {
+      loaderOverlay.classList.add('show');
+    }
+
+    function hideLoader() {
+      loaderOverlay.classList.remove('show');
     }
 
     // Mouse events
@@ -385,6 +452,8 @@
     }
 
     animate();
+
+    document.getElementById('loaderOverlay').classList.add('show');
   </script>
 </body>
 
