@@ -1,0 +1,16 @@
+# Footer buttons. Edited through the CMS.
+- name: artstation
+  url: https://www.artstation.com/k-pasta
+  icon: /images/icons/icon_artstation.png
+- name: instagram
+  url: https://www.instagram.com/rigas.cg/
+  icon: /images/icons/icon_instagram.png
+- name: behance
+  url: https://www.behance.net/ksepastksepast
+  icon: /images/icons/icon_behance.png
+- name: linkedin
+  url: https://www.linkedin.com/in/rigas-kougkolos/
+  icon: /images/icons/icon_linkedin.png
+- name: e-mail
+  url: mailto:rex_kungolos@hotmail.com
+  icon: /images/icons/icon_mail.png

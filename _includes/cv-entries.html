@@ -1,0 +1,16 @@
+{%- comment -%} CV entries: heading, details (organisation / dates), bullets. {%- endcomment -%}
+{%- for e in include.entries -%}
+  {%- assign heading = e | tr: "heading", page.lang -%}
+  {%- assign details = e | tr: "details", page.lang -%}
+  {%- assign bullets = e | tr: "bullets", page.lang %}
+  <h4>{{ heading | escape }}</h4>
+  {%- if details != "" %}
+  <p class="textbox">{{ details | escape | newline_to_br }}{% if bullets != "" %}<br><br>{% endif %}</p>
+  {%- endif -%}
+  {%- if bullets != "" %}
+  <p class="textbox alignLeft">{{ bullets | escape | newline_to_br }}</p>
+  {%- endif -%}
+  {%- unless include.columns %}
+  <br>
+  {%- endunless -%}
+{%- endfor -%}

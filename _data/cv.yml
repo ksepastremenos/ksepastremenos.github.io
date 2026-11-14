@@ -1,0 +1,289 @@
+# Edited through the CMS (CV page). Shown at /en/about/ and /el/about/.
+name_en: Rigas Kougkolos
+name_el: Ρήγας Κούγκολος
+photo: /images/me/me_low.png
+photo_mask: /images/me/me_mask_alpha.png
+subtitle_en: 3D Generalist - Computer Graphics Enthusiast
+subtitle_el: 3D Generalist - Computer Graphics Enthusiast
+summary_en: Visual and Applied Arts Integrated Masters Graduate with a strong passion for Multimedia Arts.
+summary_el: Απόφοιτος Εικαστικών και Εφαρμοσμένων Τεχνών με έφεση στα πολυμέσα και τα γραφικά.
+skills:
+- heading_en: Software Skills (Video & Image manipulation)
+  heading_el: Γνώση λογισμικών (Επεξεργασία βίντεο & εικόνας)
+  bullets_en: |-
+    Working knowledge:
+    • Blender 3D
+    • Adobe Substance Painter
+    • Unity
+    • Autodesk Maya
+    • Adobe Photoshop
+    • Inkscape
+    • Adobe After Effects
+    • Davinci Resolve
+    • Adobe Premiere Pro
+
+    Good Knowledge:
+    • Pixologic Zbrush
+    • Adobe InDesign
+    • Krita
+    • LightBurn
+    • Dragonframe
+  bullets_el: |-
+    Επαγγελματικός Χειρισμός:
+    • Blender 3D
+    • Adobe Substance Painter
+    • Unity
+    • Autodesk Maya
+    • Adobe Photoshop
+    • Inkscape
+    • Adobe After Effects
+    • Davinci Resolve
+    • Adobe Premiere Pro
+
+    Καλός Χειρισμός:
+    • Pixologic Zbrush
+    • Adobe InDesign
+    • Krita
+    • LightBurn
+    • Dragonframe
+- heading_en: Software/Digital Skills (Other)
+  heading_el: Άλλες ψηφιακές δεξιότητες
+  bullets_en: |-
+    • Dart/Flutter
+    • Scripting in C#
+    • Arduino IDE
+    • HTML / CSS / JavaScript website maintenance
+    • Joomla / Wordpress website maintenance
+    • Ableton Live
+  bullets_el: |-
+    • Dart/Flutter
+    • Scripting σε C#
+    • Διαχείριση ιστοσελίδων HTML / CSS / JavaScript
+    • Διαχείριση ιστοσελίδων Joomla / Wordpress
+    • Ableton Live
+sections:
+- title_en: Work Experience
+  title_el: Επαγγελματική Εμπειρία
+  columns: false
+  entries:
+  - heading_en: 3D Generalist - Research Assistant
+    heading_el: 3D Generalist - Βοηθός Έρευνας
+    details_en: |-
+      Information Technologies Institute (ITI)
+      May 2023 – October 2024 – Thessaloniki, Greece
+    details_el: |-
+      Ινστιτούτο Τεχνολογιών Πληροφορικής και Τηλεπικοινωνιών (ΙΠΤΗΛ)
+      Μάιος 2023 - Οκτώβριος 2024 - Θεσσαλονίκη, Ελλάδα
+    bullets_en: |-
+      • Modeling of interior and exterior spaces for VR and web applications.
+      • Photogrammetry.
+      • Creation of mockups and UI in Unity and maintenance of C# code.
+    bullets_el: |-
+      • Μοντελοποίηση και βελτιστοποίηση εσωτερικών και εξωτερικών χώρων για VR και Web εφαρμογές.
+      • Λήψη φωτογραφιών για φωτογραμμετρία αντικειμένων/χώρων.
+      • Retopology μοντέλων φωτογραμμετρίας και laser scan.
+      • Δημιουργία mockup και UI σε Unity και συντήρηση κώδικα C#.
+      • Δημιουργία παραμετρικών εργαλείων για μοντελοποίηση και animation.
+      • Συγγραφή παραδοτέων ευρωπαϊκών και ελληνικών προτζεκτ και συμμετοχή στη συγγραφή άρθρων.
+  - heading_en: Workshop Instructor – Introduction to 3D Graphics
+    heading_el: Εκπαιδευτής Εργαστηρίου Εισαγωγής στα 3D Γραφικά
+    details_en: |-
+      Olympia International Film Festival for Children and Young People
+      December 2022 – Pyrgos, Greece
+    details_el: |-
+      Διεθνές Φεστιβάλ Κινηματογράφου Ολυμπίας για παιδιά και νέους
+      Δεκέμβριος 2022 - Πύργος, Ελλάδα
+    bullets_en: • Three-day seminar for teenagers focusing on digital cameras and their simulated counterparts in 3D space.
+    bullets_el: • Τριήμερο σεμινάριο για εφήβους με εστίαση στις ψηφιακές κάμερες και το προσομοιωμένο τους αντίστοιχο στον τρισδιάστατο χώρο.
+  - heading_en: Vocational Training Institute Instructor
+    heading_el: Εκπαιδευτής Ι.Ε.Κ.
+    details_en: |-
+      Public IEK of Epanomi, Public IEK of Koufalia
+      October 2022 – February 2023 – Epanomi & Koufalia, Greece
+    details_el: |-
+      Δ.Ι.Ε.Κ Επανομής, Δ.Ι.Ε.Κ. Κουφαλίων
+      Οκτώβριος 2022 - Φεβρουάριος 2023 - Επανομή & Κουφάλια, Ελλάδα
+    bullets_en: • Adult education in the subjects “Color Theory,” “Design,” and “Visual Arts Education”.
+    bullets_el: |-
+      • Εκπαίδευση ενηλίκων στα μαθήματα “Χρωματολογία”, “Σχέδιο Ειδικότητας” και “Εικαστικά”.
+      • Προετοιμασία Διαλέξεων και εργαστηρίων.
+  - heading_en: 3D Generalist
+    heading_el: 3D Generalist
+    details_en: |-
+      Minotaur Digital Arts
+      December 2020 - January 2021 - Thessaloniki, Greece
+    details_el: |-
+      Minotaur Digital Arts
+      Δεκέμβριος 2020 - Ιανουάριος 2021 - Θεσσαλονίκη, Ελλάδα
+    bullets_en: • Creating Mobile and VR - ready assets.
+    bullets_el: Δημιουργία μοντέλων για εφαρμογές AR.
+  - heading_en: Concept Artist/Animation Intern
+    heading_el: Concept Artist/Animator (πρακτική)
+    details_en: |-
+      Addart NGO
+      August 2020 - October 2020 - Thessaloniki, Greece
+    details_el: |-
+      Addart NGO
+      Αύγουστος 2020 - Οκτώβριος 2020 - Θεσσαλονίκη, Ελλάδα
+    bullets_en: • Work for the ‘Pix & Leo’ TV show and participation in pitching sessions.
+    bullets_el: • Concept & background art για την τηλεοπτική παραγωγή Pix & Leo και συμμετοχή σε pitching.
+  - heading_en: 3D Generalist/Animation Intern
+    heading_el: 3D Generalist/Animator (πρακτική)
+    details_en: |-
+      Enter Yes Ltd.
+      March 2020 - May 2020 - Belfast, United Kingdom
+    details_el: |-
+      Enter Yes Ltd.
+      Μάρτιος 2020 - Μάιος 2020 - Belfast, Ηνωμένο Βασίλειο
+    bullets_en: '• I got to work among the various projects in the studio, mostly creating content for console games (Onar: Beyond the Red Grass, Before the Blood) and cinematic trailers.'
+    bullets_el: • Μοντελοποίηση και texturing μοντέλων για παιχνίδια και κινηματογραφικά τρέιλερ. • Rigging και animation χαρακτήρων. • Προσαρμογή σε ροές εργασιών πολλαπλών λογισμικών, μελέτες διαλειτουργικότητας.
+- title_en: Education & Training
+  title_el: Εκπαίδευση και Κατάρτιση
+  columns: false
+  entries:
+  - heading_en: Masters in Audiovisual Arts in the Digital Age
+    heading_el: Φοίτηση στο ΠΜΣ “Οπτικοακουστικές Τέχνες στην Ψηφιακή Εποχή”
+    details_en: |-
+      Department of Audio & Visual Arts, Ionian University
+      October 2022 – Present – Corfu, Greece & Online
+    details_el: |-
+      Τμήμα Τεχνών Ήχου και Εικόνας, Ιόνιο Πανεπιστήμιο
+      Οκτώβριος 2022 - Τώρα - Κέρκυρα, Ελλάδα & Διαδικτυακά
+      • Πρόγραμμα σπουδών με έμφαση στο animation, την ρομποτική και τον προγραμματισμό.
+    bullets_en: • Curriculum with emphasis on animation, robotics and programming.
+    bullets_el: ''
+  - heading_en: 3D Modeling and 3D Printing
+    heading_el: 3Δ Μοντελοποίηση και 3Δ Εκτύπωση
+    details_en: |-
+      Dynamiki Educational Organization | April 2023 – June 2023 – Thessaloniki, Greece
+      • 200-hour training program focused on 3D printing.
+    details_el: |-
+      Δυναμική Εκπαιδευτικός Οργανισμός | Απρίλιος 2023 - Ιούνιος 2023 - Θεσσαλονίκη
+      • Πρόγραμμα επιμόρφωσης 200ων ωρών με θέμα την 3Δ εκτύπωση.
+  - heading_en: JavaScript Training
+    heading_el: Επιμόρφωση στη γλώσσα προγραμματισμού JavaScript
+    details_en: |-
+      Development Agency of Karditsa S.A. | September 2021 - October 2021 - Online
+      • 50-hour JavaScript training program with an introduction to Node.js.
+    details_el: |-
+      Αναπτυξιακή Καρδίτσας | Σεπτέμβριος 2021 - Οκτώβριος 2021 - Διαδικτυακά
+      • 50ωρο πρόγραμμα επιμόρφωσης JavaScript και εισαγωγή στο Node.js.
+  - heading_en: Integrated Masters of Visual and Applied Arts
+    heading_el: Πτυχίο Εικαστικών και Εφαρμοσμένων Τεχνών
+    details_en: |-
+      Faculty of Fine Arts, Aristotle University of Thessaloniki
+      September 2014 - November 2020 - Thessaloniki, Greece
+    details_el: |-
+      Σχολή Καλών Τεχνών, Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης
+      Σεπτέμβριος 2014 - Νοέμβριος 2020 - Θεσσαλονίκη, Ελλάδα
+    bullets_en: |-
+      • Five-year, 300 ECTS course covering a wide range of topics
+      • Technical skills on photography/cinematography, etching, linocut printmaking, sculpting and industrial designing.
+      • Classical figure and still life drawing. Fundamentals of color.
+      • Modern / ancient art history research.
+      • Teaching Qualification in Fine Arts.
+      • Graduated with a 9.3 / 10 Grades Average.
+    bullets_el: |-
+      • Πενταετής σχολή 300 ECTS. Πτυχίο ενσωματωμένου Master με βαθμό πτυχίου 9,3. • Τεχνικές γνώσεις φωτογραφίας/κινηματογράφησης, χαλκογραφίας, χαρακτικής, γλυπτικής και βιομηχανικού σχεδιασμού.
+      • Κλασικές σπουδές μοντέλων & νεκρής φύσης. Θεωρία χρωμάτων.
+      • Μελέτη ιστορίας της σύγχρονης και αρχαίας τέχνης.
+      • Παιδαγωγική Επάρκεια καλών τεχνών.
+  - heading_en: Summer Course in Classical Drawing
+    heading_el: Summer Course in Classical Drawing
+    details_en: |-
+      The Animation Workshop - VIA | July 2015 - Viborg, Denmark
+      • Nude model and landscape sketch studies with dry media.
+    details_el: |-
+      The Animation Workshop - VIA | Ιούλιος 2015 - Viborg, Δανία
+      • Μελέτες γυμνού μοντέλου και τοπιογραφίας, με κάρβουνο και μολύβι.
+- title_en: Volunteering
+  title_el: Εθελοντισμός
+  columns: false
+  entries:
+  - heading_en: Workshop Facilitator
+    heading_el: Εμψυχωτής Εργαστηρίων
+    details_en: |-
+      Evolving Cycles (Public Spaces for Peace Places)
+      October 2024 – April 2025 – Chania, Greece
+    details_el: |-
+      Evolving Cycles (Public Spaces for Peace Places)
+      Οκτώβριος 2024 - Απρίλιος 2025 - Χανιά, Ελλάδα
+      • Διοργάνωση εργαστηρίων συμμετοχικού σχεδιασμού για ενήλικες.
+    bullets_en: • Organization of participatory design workshops for adults.
+    bullets_el: ''
+  - heading_en: Volunteer at Cultural Café
+    heading_el: Εθελοντής σε κέντρο πολιτισμού
+    details_en: |-
+      Maison de la Terre
+      November 2021 - July 2022 - Pucharramet, France
+    details_el: |-
+      Maison de la Terre
+      Νοέμβριος 2021 - Ιούλιος 2022 - Poucharramet, Γαλλία
+    bullets_en: |-
+      • Concert sound set-up & engineering.
+      • Coordination of cultural / artistic events.
+      • Designing of brochures, menus, posters and video teasers within a visual identity.
+      • Communication in French.
+    bullets_el: |-
+      • Στήσιμο συναυλιακού ήχου.
+      • Διοργάνωση πολιτιστικών εκδηλώσεων.
+      • Σχεδιασμός προγραμμάτων, καταλόγων και δημιουργία διαφημιστικών σπότ στα πλαίσια εταιρικής ταυτότητας.
+      • Επικοινωνία στα γαλλικά.
+  - heading_en: Summer Camp Staff / Manager of Creative Activities
+    heading_el: Προσωπικό Κατασκήνωσης / Υπεύθυνος Δημιουργικού
+    details_en: YMCA Thessaloniki August 2012, 2014, 2015, 2016, 2017, June 2018 - Agios Ioannis & Nymfaio, Greece
+    details_el: ΧΑΝ Θεσσαλονικης Αύγουστος 2012, 2014, 2015, 2016, 2017, Ιούνιος 2018 - Αγ. Ιωάννης Πηλίου & Νυμφαίο, Ελλάδα
+    bullets_en: |-
+      • Coordinating volunteer groups.
+      • Being responsible for and interacting daily with large groups of children, aged 6 - 14.
+      • Coming up with and realizing creative ideas for posters, decorations and activities.
+      • Storage room management.
+    bullets_el: |-
+      • Συντονισμός ομάδων εθελοντών & σχεδιασμός δραστηριοτήτων.
+      • Καθημερινή ευθύνη και αλληλεπίδραση με μεγάλες ομάδες παιδιών, ηλικίας 6 - 14 ετών.
+      • Διακόσμηση εξωτερικού χώρου.
+      • Διαχείριση αποθήκης.
+- title_en: Language & Other skills
+  title_el: Γλώσσες και Λοιπές δεξιότητες
+  columns: true
+  entries:
+  - heading_en: 'Mother tongues:'
+    heading_el: 'Μητρικές Γλώσσες:'
+    bullets_en: • Greek, English
+    bullets_el: • Ελληνικά, Αγγλικά
+  - heading_en: 'Language Degrees:'
+    heading_el: 'Πτυχία:'
+    bullets_en: |-
+      • English - C2
+      - Certificate of proficiency in English (ECPE)
+      - IELTS Academic band 8
+
+      • French - B1
+      - Certificat d'État hellénique de Connaissance des Langues. B1
+      - Expecting results for DALF C2.
+
+      • Japanese - B1
+      JLPT N4
+    bullets_el: |-
+      • Αγγλικα - C2
+      - Certificate of proficiency in English (ECPE)
+      - IELTS Academic band 8
+
+      • Γαλλικά - B1
+      Certificat d'État hellénique de Connaissance des Langues. B1
+      Σε αναμονή αποτελεσμάτων για το πτυχίο DALF C2.
+
+      • Ιαπωνικά - B1
+      JLPT N4
+  - heading_en: Other Skills
+    heading_el: Λοιπές δεξιότητες
+    bullets_en: |-
+      • Music theory, audio editing and recording basics
+      • Photography
+      • B Driving Licence
+      • Cycling, Unicycling
+    bullets_el: |-
+      • Βασικές γνώσεις μουσικής θεωρίας, επεξεργασίας και καταγραφής ήχου
+      • Φωτογραφία
+      • Άδεια Οδήγησης Β κατηγορία
+      • Ποδήλατο, Μονόροδο

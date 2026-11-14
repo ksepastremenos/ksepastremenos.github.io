@@ -1,0 +1,27 @@
+title: rigascg
+url: https://rigascg.com
+default_lang: en
+languages: [en, el]
+
+# Pages listed in the top bar, by their `ref` front matter value.
+nav: [about, portfolio, contact]
+
+collections:
+  projects:
+    output: false # pages are generated per language by _plugins/site.rb
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true # a single line break in the CMS text becomes a line break on the page
+  # keep quotes, dashes and dots exactly as typed
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  typographic_symbols: { hellip: "...", mdash: "---", ndash: "--", laquo: "<<", raquo: ">>", laquo_space: "<< ", raquo_space: " >>" }
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CLAUDE.md
+  - LICENSE
+  - vendor

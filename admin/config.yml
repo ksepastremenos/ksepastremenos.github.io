@@ -1,0 +1,236 @@
+# Sveltia CMS configuration: https://sveltiacms.app/en/docs
+# Open https://rigascg.com/admin/ and use "Sign In with Token".
+# Every save is a commit to `main`; GitHub Actions rebuilds the site in ~1 minute.
+
+backend:
+  name: github
+  repo: ksepastremenos/ksepastremenos.github.io
+  branch: main
+
+site_url: https://rigascg.com
+display_url: https://rigascg.com
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      # Large videos are better on Vimeo (use a Vimeo item instead).
+      max_file_size: 50000000
+      # JPEG/PNG uploads are converted to WebP and limited to 2560px, in the
+      # browser, before upload. Animated GIF/WebP/PNG are left untouched.
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2560
+          height: 2560
+
+editor:
+  preview: false
+
+collections:
+  # ---------------------------------------------------------------------------
+  - name: projects
+    label: Portfolio
+    label_singular: Project
+    description: "Each project gets an English and a Greek page. Fields marked (GR) fall back to English when missing."
+    folder: _projects
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    identifier_field: title_en
+    summary: "{{order}}. {{title_en}}"
+    thumbnail: cover
+    sortable_fields: [order, title_en]
+    preview_path: "en/portfolio/{{slug}}/"
+    # Uploads for a project go to images/portfolio/<project>/
+    media_folder: /images/portfolio/{{slug}}
+    public_folder: /images/portfolio/{{slug}}
+    fields:
+      - { name: title_en, label: Title (EN), widget: string, hint: "Also used for the page address when creating a project." }
+      - { name: title_el, label: Title (GR), widget: string, required: false }
+      - { name: cover, label: Cover image (portfolio grid), widget: image }
+      - { name: card_label_en, label: Grid label (EN), widget: string, required: false, hint: "Text shown when hovering the cover. Empty = the title." }
+      - { name: card_label_el, label: Grid label (GR), widget: string, required: false }
+      - { name: order, label: Position in the grid, widget: number, value_type: int, default: 99, hint: "1 = first. Projects with the same number are sorted by date added." }
+      - { name: published, label: Show on site, widget: boolean, default: true }
+      - { name: old_id, widget: hidden }
+      - name: blocks
+        label: Page content
+        label_singular: Block
+        widget: list
+        types:
+          - name: text
+            label: Text
+            summary: "{{fields.text_en | truncate(70)}}"
+            fields:
+              - { name: text_en, label: Text (EN), widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+              - { name: text_el, label: Text (GR), widget: markdown, buttons: [bold, italic, link], editor_components: [], required: false }
+              - name: align
+                label: Alignment
+                widget: select
+                required: false
+                default: justify
+                options: [{ label: Justified, value: justify }, { label: Centered, value: center }]
+          - name: media
+            label: Images & videos
+            summary: "{{fields.columns}} column(s) · {{fields.caption_en}}"
+            fields:
+              - name: columns
+                label: Layout
+                widget: select
+                default: 1
+                options: [{ label: One under the other, value: 1 }, { label: Two columns, value: 2 }]
+              - name: items
+                label: Images & videos
+                widget: list
+                thumbnail: src
+                types:
+                  - name: image
+                    label: Image
+                    summary: "{{fields.src}} {{fields.title_en}}"
+                    fields:
+                      - { name: src, label: Image, widget: image }
+                      - { name: title_en, label: Title (EN), widget: string, required: false, hint: "Shown under the image in the lightbox. Empty = the group caption, or the project title." }
+                      - { name: title_el, label: Title (GR), widget: string, required: false, hint: "Empty = the English title." }
+                  - name: video
+                    label: Video file (mp4)
+                    summary: "{{fields.src}}"
+                    fields:
+                      - { name: src, label: Video, widget: file, accept: video/mp4 }
+                      - { name: muted, label: Muted, widget: boolean, default: false, required: false }
+                  - name: vimeo
+                    label: Vimeo video
+                    summary: "{{fields.vimeo}}"
+                    fields:
+                      - { name: vimeo, label: Vimeo link, widget: string, hint: "e.g. https://vimeo.com/123456789 (for unlisted videos, the link that includes the extra code after the number)" }
+                      - { name: ratio, label: Aspect ratio, widget: string, default: "16:9", pattern: ['^\d+(\.\d+)?:\d+(\.\d+)?$', "width:height, e.g. 16:9"] }
+                      - { name: title_en, label: Title, widget: string, required: false }
+              - { name: caption_en, label: Caption (EN), widget: string, required: false, hint: "Shown centered under the group, and in the lightbox for images without their own title." }
+              - { name: caption_el, label: Caption (GR), widget: string, required: false }
+          - name: link
+            label: Link button
+            summary: "{{fields.label_en}}"
+            fields:
+              - { name: url, label: Link, widget: string }
+              - { name: label_en, label: Label (EN), widget: string }
+              - { name: label_el, label: Label (GR), widget: string, required: false }
+          - name: divider
+            label: Divider line
+
+  # ---------------------------------------------------------------------------
+  - name: pages
+    label: Pages
+    files:
+      - name: cv
+        label: CV (about)
+        file: _data/cv.yml
+        fields:
+          - { name: name_en, label: Name (EN), widget: string }
+          - { name: name_el, label: Name (GR), widget: string, required: false }
+          - { name: photo, label: Photo, widget: image }
+          - { name: photo_mask, label: Photo colour mask, widget: image, required: false, hint: "Transparent PNG matching the photo; the animated gradient shows through its opaque parts." }
+          - { name: subtitle_en, label: Subtitle (EN), widget: string }
+          - { name: subtitle_el, label: Subtitle (GR), widget: string, required: false }
+          - { name: summary_en, label: Summary (EN), widget: text }
+          - { name: summary_el, label: Summary (GR), widget: text, required: false }
+          - name: skills
+            label: Skills (next to the photo, in two columns)
+            label_singular: Skill group
+            widget: list
+            summary: "{{fields.heading_en}}"
+            fields: &cv_entry_fields
+              - { name: heading_en, label: Heading (EN), widget: string }
+              - { name: heading_el, label: Heading (GR), widget: string, required: false }
+              - { name: details_en, label: Details (EN), widget: text, required: false, hint: "Organisation, dates, place. Each line stays a line." }
+              - { name: details_el, label: Details (GR), widget: text, required: false }
+              - { name: bullets_en, label: Bullets (EN), widget: text, required: false, hint: "One per line, e.g. • Blender 3D" }
+              - { name: bullets_el, label: Bullets (GR), widget: text, required: false }
+          - name: sections
+            label: Sections (collapsible)
+            label_singular: Section
+            widget: list
+            summary: "{{fields.title_en}}"
+            fields:
+              - { name: title_en, label: Title (EN), widget: string }
+              - { name: title_el, label: Title (GR), widget: string, required: false }
+              - { name: columns, label: Show entries in two columns, widget: boolean, default: false, required: false }
+              - name: entries
+                label: Entries
+                label_singular: Entry
+                widget: list
+                summary: "{{fields.heading_en}}"
+                fields: *cv_entry_fields
+
+      - name: home
+        label: Home
+        file: _data/home.yml
+        fields:
+          - name: showreel
+            label: Showreel
+            widget: object
+            fields:
+              - { name: vimeo, label: Vimeo link, widget: string }
+              - { name: ratio, label: Aspect ratio, widget: string, default: "16:9" }
+              - { name: title, label: Title, widget: string, required: false }
+          - { name: intro_en, label: Intro (EN), widget: markdown, buttons: [bold], editor_components: [], hint: "Bold text gets the animated colour gradient." }
+          - { name: intro_el, label: Intro (GR), widget: markdown, buttons: [bold], editor_components: [], required: false }
+
+      - name: contact
+        label: Contact
+        file: _data/contact.yml
+        fields:
+          - { name: title_en, label: Title (EN), widget: string }
+          - { name: title_el, label: Title (GR), widget: string, required: false }
+          - name: items
+            label: Contact buttons
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: Text shown, widget: string }
+              - { name: link, label: Link, widget: string, hint: "tel:+30… or mailto:…" }
+              - { name: copy, label: Copied to clipboard, widget: string }
+              - { name: copied_en, label: Copied message (EN), widget: string }
+              - { name: copied_el, label: Copied message (GR), widget: string, required: false }
+
+      - name: social
+        label: Footer links
+        file: _data/social.yml
+        fields:
+          - name: links
+            label: Links
+            widget: list
+            root: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: url, label: Link, widget: string }
+              - { name: icon, label: "Icon (white, square)", widget: image }
+
+      - name: i18n
+        label: Interface text
+        file: _data/i18n.yml
+        fields:
+          - name: en
+            label: English
+            widget: object
+            fields: &ui_fields
+              - { name: label, label: Language switch label, widget: string }
+              - { name: home, label: Menu - home, widget: string }
+              - { name: about, label: Menu - about, widget: string }
+              - { name: portfolio, label: Menu - portfolio, widget: string }
+              - { name: contact, label: Menu - contact, widget: string }
+              - { name: selected_projects, label: Portfolio heading, widget: string }
+              - { name: back_to_portfolio, label: Back button, widget: string }
+              - { name: footer_note, label: Footer note, widget: string }
+              - { name: change_language, label: Language switch tooltip, widget: string }
+              - { name: copy, label: Copy button tooltip, widget: string }
+              - { name: not_found, label: Page-not-found text, widget: string }
+          - name: el
+            label: Greek
+            widget: object
+            fields: *ui_fields

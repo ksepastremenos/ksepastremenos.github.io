@@ -1,0 +1,13 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign projects = site.projects | sort: "order" -%}
+<div class="shortContainer"><h1>{{ t.selected_projects }}</h1></div>
+<div class="shortContainer spaceBetween">
+  {%- for p in projects %}
+  {%- assign label = p | tr: "card_label", page.lang -%}
+  {%- if label == "" %}{% assign label = p | tr: "title", page.lang %}{% endif %}
+  <a class="btn portfolioEntry" href="{{ '/' | append: page.lang | append: '/portfolio/' | append: p.slug | append: '/' | relative_url }}"><img class="responsive" src="{{ p.cover }}" {{ p.cover | media_size_attrs }} alt="{{ label | escape }}"><p>{{ label | escape }}</p></a>
+  {%- endfor %}
+</div>
