@@ -1,0 +1,44 @@
+{%- comment -%}
+  Renders a list of content blocks (as edited in the CMS).
+  include.blocks:  the list
+  include.fallback_caption: lightbox caption for images without their own title or group caption
+{%- endcomment -%}
+{%- assign lang = page.lang -%}
+{%- for block in include.blocks -%}
+  {%- case block.type -%}
+
+  {%- when "text" -%}
+  {%- assign text = block | tr: "text", lang -%}
+  <div class="textbox md{% if block.align == 'center' %} alignCenter{% endif %}">{{ text | markdownify }}</div>
+
+  {%- when "media" -%}
+  {%- assign caption = block | tr: "caption", lang -%}
+  {%- assign cols = block.columns | append: "" -%}
+  {%- if cols == "2" %}<div class="columnLayout margin">{% endif -%}
+  {%- for item in block.items -%}
+    {%- assign title = item | tr: "title", lang -%}
+    {%- if title == "" %}{% assign title = caption %}{% endif -%}
+    {%- if title == "" %}{% assign title = include.fallback_caption %}{% endif -%}
+    {%- case item.type -%}
+    {%- when "image" %}
+    <img class="responsive" src="{{ item.src }}" {{ item.src | media_size_attrs }} alt="{{ title | escape }}" loading="lazy" decoding="async" data-lightbox data-caption="{{ title | escape }}">
+    {%- when "video" %}
+    <video class="responsive" controls{% if item.muted %} muted{% endif %} preload="metadata" {{ item.src | media_size_attrs }}><source src="{{ item.src }}" type="video/mp4"></video>
+    {%- when "vimeo" %}
+    {% include vimeo.html url=item.vimeo ratio=item.ratio title=title %}
+    {%- endcase -%}
+  {%- endfor -%}
+  {%- if cols == "2" %}</div>{% endif -%}
+  {%- if caption != "" %}
+  <p class="textbox alignCenter">{{ caption | escape }}</p>
+  {%- endif -%}
+
+  {%- when "link" -%}
+  {%- assign label = block | tr: "label", lang %}
+  <a class="btn backButton" href="{{ block.url }}" target="_blank" rel="noopener"><h3>{{ label | escape }}</h3></a>
+
+  {%- when "divider" %}
+  <hr>
+
+  {%- endcase -%}
+{%- endfor -%}

@@ -1,0 +1,115 @@
+{%- assign lang = page.lang | default: site.default_lang -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- if lang == "en" %}{% assign other = "el" %}{% else %}{% assign other = "en" %}{% endif -%}
+{%- capture other_url %}{% include url-for.html ref=page.ref lang=other %}{% endcapture -%}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rigascg{% if page.title %} - {{ page.title }}{% endif %}</title>
+  {%- if other_url != "" %}
+  <link rel="alternate" hreflang="{{ other }}" href="{{ other_url | absolute_url }}">
+  {%- endif %}
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-latin-700-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {%- if lang == "el" %}
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-greek-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/ubuntu-greek-700-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {%- endif %}
+  <link rel="stylesheet" href="{{ '/assets/vendor/simplebar/simplebar.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/mystyle.css' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ '/images/icons/favicon.png' | relative_url }}">
+  {%- if page.url == "/" %}
+  <script>
+    // Old links looked like rigascg.com/?page=p_zagori&lang=gr. Send them to the new address.
+    (function () {
+      var q = new URLSearchParams(location.search), p = q.get('page');
+      if (!p) return;
+      var lang = q.get('lang') === 'gr' ? 'el' : 'en';
+      var projects = { {% for p in site.projects %}{% if p.old_id %}"{{ p.old_id }}": "{{ p.slug }}"{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %} };
+      var path = projects[p] ? '/' + lang + '/portfolio/' + projects[p] + '/'
+        : ['about', 'portfolio', 'contact'].indexOf(p) >= 0 ? '/' + lang + '/' + p + '/'
+        : lang === 'el' ? '/el/' : '/';
+      if (path !== location.pathname || location.search) location.replace(path);
+    })();
+  </script>
+  {%- endif %}
+  <script>
+    // Keeps the looping gradient animations continuous across page loads,
+    // so they don't restart (and visibly jump) on every navigation.
+    document.documentElement.style.setProperty('--anim-offset', -(Date.now() % 15000) + 'ms');
+    // Browsers without cross-document view transitions (e.g. Firefox) fade
+    // pages with a script instead (see mystyle.css and assets/js/site.js).
+    if (!('PageRevealEvent' in window)) document.documentElement.classList.add('js-fade');
+  </script>
+</head>
+
+<body>
+  {%- comment -%}
+    SimpleBar's own wrapper structure, written out in advance. SimpleBar finds it
+    already in place and only attaches to it, instead of rebuilding the page on load.
+  {%- endcomment %}
+  <div class="scroller" data-simplebar>
+    <div class="simplebar-wrapper">
+      <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div>
+      <div class="simplebar-mask">
+        <div class="simplebar-offset">
+          <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content">
+            <div class="simplebar-content">
+
+    <div class="mainFlexbox">
+      <div class="topcontainer">
+        <header class="container header">
+          <div class="logoandlanguage">
+            <a class="btn logoall" href="{% include url-for.html ref='home' lang=lang %}" title="{{ t.home }}"><span class="logowhite weak">rigas</span><span class="logocolor">cg</span></a>
+            {%- if other_url != "" %}
+            <a class="btn languageselector" href="{{ other_url }}" hreflang="{{ other }}" title="{{ t.change_language }}">
+            {%- else %}
+            <span class="btn languageselector">
+            {%- endif -%}
+              <span class="{% if lang == 'el' %}current emphasis strong{% else %}notCurrent weak{% endif %}">{{ site.data.i18n.el.label }}</span><span class="strong"> · </span><span class="{% if lang == 'en' %}current emphasis strong{% else %}notCurrent weak{% endif %}">{{ site.data.i18n.en.label }}</span>
+            {%- if other_url != "" %}</a>{% else %}</span>{% endif %}
+          </div>
+
+          <nav>
+            <div class="hideWhenSmall">
+              <a class="btn fade" href="{% include url-for.html ref='home' lang=lang %}">{{ t.home }}</a>
+            </div>
+            {%- for ref in site.nav %}
+            <a class="btn fade" href="{% include url-for.html ref=ref lang=lang %}">{{ t[ref] }}</a>
+            {%- endfor %}
+          </nav>
+        </header>
+
+        <main id="content" class="verticalPageFlexbox">
+{{ content }}
+        </main>
+      </div>
+
+      <footer class="footer">
+        <p class="footernote"><i>{{ t.footer_note }}</i></p>
+        {%- for s in site.data.social %}
+        <a class="btn social_button rounded" href="{{ s.url }}"{% unless s.url contains 'mailto:' %} target="_blank" rel="noopener"{% endunless %} title="{{ s.name }}"><img src="{{ s.icon }}" alt="{{ s.name }}" height="28" width="28"><div class="buttonBackground rounded"></div></a>
+        {%- endfor %}
+      </footer>
+      <div class="showWhenSmall" style="height:1rem;"></div>
+    </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="simplebar-placeholder"></div>
+    </div>
+    <div class="simplebar-track simplebar-horizontal"><div class="simplebar-scrollbar"></div></div>
+    <div class="simplebar-track simplebar-vertical"><div class="simplebar-scrollbar"></div></div>
+  </div>
+
+  <script src="{{ '/assets/vendor/simplebar/simplebar.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  {%- if content contains "data-lightbox" %}
+  <script src="{{ '/assets/js/lightbox.js' | relative_url }}"></script>
+  {%- endif %}
+</body>
+</html>

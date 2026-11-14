@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{%- assign c = site.data.contact -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+<div class="shortContainer"><h1>{{ c | tr: "title", page.lang }}</h1></div>
+<div class="shortContainer">
+  {%- for item in c.items %}
+  {%- assign copied = item | tr: "copied", page.lang %}
+  <div class="contactButtons">
+    <a href="{{ item.link }}" class="btn contactButton roundedLeft">{{ item.label }}</a><button class="contactButton roundedRight" title="{{ t.copy }}" onclick="clipboard({{ item.copy | jsonify | escape }}, {{ copied | jsonify | escape }})"><img class="responsive" src="{{ '/images/icons/copy.png' | relative_url }}" alt="copy"></button>
+  </div>
+  {%- endfor %}
+</div>
+<div id="copied"></div>

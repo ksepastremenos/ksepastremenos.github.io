@@ -1,0 +1,7 @@
+{%- comment -%}
+  Prints the URL of the page with ref=include.ref in language include.lang.
+  Usage: {% include url-for.html ref="about" lang=page.lang %}
+{%- endcomment -%}
+{%- assign _all = site.pages | concat: site.documents -%}
+{%- assign _target = _all | where: "ref", include.ref | where: "lang", include.lang | first -%}
+{{- _target.url | relative_url -}}

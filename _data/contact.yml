@@ -1,0 +1,14 @@
+# Edited through the CMS (Contact page).
+title_en: Anytime
+title_el: Στοιχεία Επικοινωνίας
+items:
+- label: +30 698 6935 868
+  link: tel:+306986935868
+  copy: '+306986935868'
+  copied_en: phone number copied to clipboard
+  copied_el: ο αριθμός αντιγράφηκε
+- label: rex_kungolos@hotmail.com
+  link: mailto:rex_kungolos@hotmail.com
+  copy: rex_kungolos@hotmail.com
+  copied_en: email copied to clipboard
+  copied_el: η διεύθυνση αντιγράφηκε

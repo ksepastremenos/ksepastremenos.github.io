@@ -1,0 +1,41 @@
+---
+layout: default
+---
+{%- assign cv = site.data.cv -%}
+<div class="shortContainer">
+  <h1>{{ cv | tr: "name", page.lang }}</h1>
+</div>
+<div class="shortContainer">
+  <div class="relative">
+    <img class="responsive" src="{{ cv.photo }}" {{ cv.photo | media_size_attrs }} alt="{{ cv.name_en | escape }}">
+    {%- if cv.photo_mask %}
+    <div class="mask" style="-webkit-mask-image:url('{{ cv.photo_mask }}');mask-image:url('{{ cv.photo_mask }}');"></div>
+    {%- endif %}
+  </div>
+  <div class="shrink">
+    <h4 class="subtitle">{{ cv | tr: "subtitle", page.lang }}</h4>
+    <p class="textbox">{{ cv | tr: "summary", page.lang | escape | newline_to_br }}</p>
+    <hr><br>
+    <div class="container">
+      <div class="columnLayout">
+        {%- include cv-entries.html entries=cv.skills columns=true %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shortContainer">
+  {%- for section in cv.sections %}
+  <button class="collapsible" onclick="toggleCollapsible(this)">{{ section | tr: "title", page.lang }}</button>
+  <div class="collapsibleContent">
+    {%- if section.columns %}
+    <div class="columnLayout">
+      {%- include cv-entries.html entries=section.entries columns=true %}
+    </div>
+    {%- else %}
+    <br>
+    {%- include cv-entries.html entries=section.entries %}
+    {%- endif %}
+  </div>
+  {%- endfor %}
+</div>

@@ -1,0 +1,25 @@
+# Interface text for each language (menu, buttons, footer). Edited through the CMS.
+en:
+  label: en
+  home: home
+  about: about
+  portfolio: portfolio
+  contact: contact
+  selected_projects: Selected Projects
+  back_to_portfolio: Back to Portfolio
+  footer_note: let's keep in touch!
+  change_language: change language
+  copy: copy
+  not_found: This page doesn't exist (anymore).
+el:
+  label: gr
+  home: αρχική
+  about: σχετικά
+  portfolio: πορτφόλιο
+  contact: επικοινωνία
+  selected_projects: Επιλεγμένα Project
+  back_to_portfolio: Επιστροφή στο Πορτφόλιο
+  footer_note: Δε χανόμαστε!
+  change_language: αλλαγή γλώσσας
+  copy: αντιγραφή
+  not_found: Αυτή η σελίδα δεν υπάρχει (πια).

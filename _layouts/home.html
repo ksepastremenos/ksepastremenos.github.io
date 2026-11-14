@@ -1,0 +1,10 @@
+---
+layout: default
+---
+{%- assign home = site.data.home -%}
+{% include vimeo.html url=home.showreel.vimeo ratio=home.showreel.ratio title=home.showreel.title %}
+
+{%- assign intro = home | tr: "intro", page.lang %}
+<div class="containerShort margin">
+  <div class="weak textbox alignCenter md intro" style="font-size: 1rem;">{{ intro | markdownify }}</div>
+</div>
